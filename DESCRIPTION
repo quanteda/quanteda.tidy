@@ -1,0 +1,16 @@
+Package: quanteda.tidy
+Title: Tidyverse extensions to the quanteda
+Version: 0.1
+Authors@R: c( person("Kenneth", "Benoit", email = "kbenoit@lse.ac.uk", role =
+    c("aut", "cre", "cph")) )
+Description: Adds tidyverse functionality to quanteda objects.
+Depends:
+  R (>= 3.4.3),
+  quanteda (>= 1.0.0)
+Imports:
+  dplyr
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
+Suggests: testthat
