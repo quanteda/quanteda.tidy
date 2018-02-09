@@ -1,5 +1,4 @@
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/quanteda.tidy)](https://cran.r-project.org/package=quanteda.tidy)
-
 [![Travis-CI Build Status](https://travis-ci.org/quanteda/quanteda.tidy.svg?branch=master)](https://travis-ci.org/quanteda/quanteda.tidy)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/quanteda/quanteda.tidy?branch=master&svg=true)](https://ci.appveyor.com/project/quanteda/quanteda.tidy)
 [![Coverage Status](https://img.shields.io/codecov/c/github/quanteda/quanteda.tidy/master.svg)](https://codecov.io/github/quanteda/quanteda.tidy?branch=master)
