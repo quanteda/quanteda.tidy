@@ -1,6 +1,6 @@
 Package: quanteda.tidy
 Title: Tidyverse extensions to the quanteda
-Version: 0.1
+Version: 0.1.9000
 Authors@R: c( person("Kenneth", "Benoit", email = "kbenoit@lse.ac.uk", role =
     c("aut", "cre", "cph")) )
 Description: Adds tidyverse functionality to quanteda objects.
