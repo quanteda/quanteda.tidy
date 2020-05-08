@@ -1,0 +1,59 @@
+---
+output: github_document
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "##",
+  fig.path = "man/images/"
+)
+```
+```{r echo=FALSE, results="hide", message=FALSE}
+library("badger")
+```
+
+# quanteda.tidy
+
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/quanteda.tidy)](https://cran.r-project.org/package=quanteda.tidy)
+[![Travis-CI Build Status](https://travis-ci.org/quanteda/quanteda.tidy.svg?branch=master)](https://travis-ci.org/quanteda/quanteda.tidy)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/quanteda/quanteda.tidy?branch=master&svg=true)](https://ci.appveyor.com/project/quanteda/quanteda.tidy)
+[![Coverage Status](https://img.shields.io/codecov/c/github/quanteda/quanteda.tidy/master.svg)](https://codecov.io/github/quanteda/quanteda.tidy?branch=master)
+
+
+## About
+
+**quanteda.tidy** extends the **quanteda** package with functionality from the "tidyverse", especially **dplyr**.  
+Note that this is not the same as **tidytext**, which stretches tokens into data.frames.  Instead, tidy functions operate only on document variables, but extends these functions (from **dplyr**) to work on **quanteda** objects as if they were tibbles or data.frames.
+
+## Installation
+
+You can install **quanteda.tidy** from GitHub with:
+
+```{r eval = FALSE}
+devtools::install_github("quanteda/quanteda.tidy")
+```
+
+
+## Examples
+
+Adding a document variable for full president name:
+```{r}
+library("quanteda.tidy")
+
+data_corpus_inaugural %>%
+  transmute(fullname = paste(FirstName, President, sep = ", ")) %>%
+  summary(n = 5)
+
+data_corpus_inaugural %>%
+  mutate(fullname = paste(FirstName, President, sep = ", ")) %>%
+  summary(n = 5)
+```
+
+
+Filtering documents based on years:
+```{r}
+data_corpus_inaugural %>%
+  filter(President == "Roosevelt") %>%
+  summary()
+```
