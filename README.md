@@ -1,13 +1,18 @@
 
 # quanteda.tidy
 
+<!-- badges: start -->
+
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/quanteda.tidy)](https://cran.r-project.org/package=quanteda.tidy)
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![Travis-CI Build
 Status](https://travis-ci.org/quanteda/quanteda.tidy.svg?branch=master)](https://travis-ci.org/quanteda/quanteda.tidy)
 [![AppVeyor Build
 Status](https://ci.appveyor.com/api/projects/status/github/quanteda/quanteda.tidy?branch=master&svg=true)](https://ci.appveyor.com/project/quanteda/quanteda.tidy)
 [![Coverage
 Status](https://img.shields.io/codecov/c/github/quanteda/quanteda.tidy/master.svg)](https://codecov.io/github/quanteda/quanteda.tidy?branch=master)
+<!-- badges: end -->
 
 ## About
 
@@ -31,7 +36,7 @@ devtools::install_github("quanteda/quanteda.tidy")
 Adding a document variable for full president name:
 
 ``` r
-library("quanteda.tidy")
+library("quanteda.tidy", warn.conflicts = FALSE)
 ## Loading required package: quanteda
 ## Package version: 2.0.2
 ## Parallel computing: 2 of 8 threads used.
@@ -41,11 +46,6 @@ library("quanteda.tidy")
 ## The following object is masked from 'package:utils':
 ## 
 ##     View
-## 
-## Attaching package: 'quanteda.tidy'
-## The following object is masked from 'package:stats':
-## 
-##     filter
 
 data_corpus_inaugural %>%
   transmute(fullname = paste(FirstName, President, sep = ", ")) %>%
