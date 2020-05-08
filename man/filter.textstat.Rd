@@ -43,7 +43,7 @@ filter(keyness, p < .00001) \%>\% head()
 }
 \seealso{
 \code{\link[quanteda]{textstat_collocations}},
-  \code{\link[quanteda]{textstat_keyness}},
-  \code{\link[quanteda]{textstat_frequency}}
+\code{\link[quanteda]{textstat_keyness}},
+\code{\link[quanteda]{textstat_frequency}}
 }
-\keyword{textstat}
+\keyword{internal}

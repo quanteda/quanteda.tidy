@@ -10,7 +10,7 @@
 \item{.data}{a corpus object whose documents will be sorted}
 
 \item{...}{comma-separated list of unquoted document variables, or
-expressions involving document variables. Use [desc][dplyr::desc()] to 
+expressions involving document variables. Use \link[dplyr:desc]{desc} to
 sort a variable in descending order.}
 }
 \description{

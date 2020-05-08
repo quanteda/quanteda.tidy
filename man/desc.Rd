@@ -4,6 +4,6 @@
 \alias{desc}
 \title{desc re-export}
 \description{
-See [dplyr::desc()] for details.
+See \code{\link[dplyr:desc]{dplyr::desc()}} for details.
 }
 \keyword{internal}

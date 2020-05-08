@@ -2,6 +2,31 @@
 #' @export
 dplyr::filter
 
+#' Return documents with matching conditions
+#' 
+#' Use `filter()` to select documents where conditions evaluated on document 
+#' variables are true. Documents where the condition evaluates to `NA` are dropped.
+#' A tidy replacement for [corpus_subset()][quanteda::corpus_subset()].
+#' 
+#' @param .data a \pkg{quanteda} object whose documents will be filtered
+#' @param ... Logical predicates defined in terms of the document variables in
+#'   `.data`, or a condition supplied externally whose length matches `the
+#'   number of `ndoc(.data)`.  See [filter][dplyr::filter()].
+#' @inheritParams dplyr::filter
+#' @importFrom quanteda corpus convert %>% meta
+#' @export
+#' @examples
+#' data_corpus_inaugural %>%
+#'     mutate(fullname = paste(FirstName, President, sep = ", ")) %>%
+#'     summary(n = 5)
+#'     
+filter.corpus <- function(.data, ..., .preserve = FALSE) {
+    convert(.data, to = "data.frame") %>%
+        filter(..., .preserve = FALSE) %>%
+        corpus(meta = meta(.data))
+}
+
+
 #' Return rows with matching conditions including feature matches
 #'
 #' Use filters to find rows of the return objects from many \code{textstat_*()}
@@ -16,7 +41,7 @@ dplyr::filter
 #' @seealso  \code{\link[quanteda]{textstat_collocations}},
 #'   \code{\link[quanteda]{textstat_keyness}},
 #'   \code{\link[quanteda]{textstat_frequency}}
-#' @keywords textstat
+#' @keywords internal
 #' @importFrom utils getS3method getFromNamespace
 #' @export
 #' @examples
