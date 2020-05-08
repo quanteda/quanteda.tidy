@@ -5,7 +5,7 @@ Authors@R: c( person("Kenneth", "Benoit", email = "kbenoit@lse.ac.uk", role =
     c("aut", "cre", "cph")) )
 Description: Adds tidy functionality, especially dplyr functions, to quanteda objects.
 Depends:
-  R (>= 3.4.3),
+  R (>= 3.4.0),
   quanteda (>= 2.0.0)
 Imports:
   dplyr
