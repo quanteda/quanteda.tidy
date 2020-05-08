@@ -9,8 +9,6 @@ dplyr::arrange
 #' @param ... comma-separated list of unquoted document variables, or
 #'   expressions involving document variables. Use [desc][dplyr::desc()] to 
 #'   sort a variable in descending order.
-#' @keywords corpus
-#' @method arrange corpus
 #' @importFrom quanteda corpus convert %>% meta
 #' @export
 #' @examples

@@ -21,4 +21,3 @@ arrange(data_corpus_inaugural[1:5], President)
 arrange(data_corpus_inaugural[1:5], c(3, 2, 1, 5, 4))
 arrange(data_corpus_inaugural[1:5], desc(President))
 }
-\keyword{corpus}
