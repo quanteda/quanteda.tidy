@@ -8,7 +8,8 @@ Depends:
   R (>= 3.4.0),
   quanteda (>= 2.0.0)
 Imports:
-  dplyr
+  dplyr,
+  tibble
 License: GPL-3
 Encoding: UTF-8
 LazyData: true

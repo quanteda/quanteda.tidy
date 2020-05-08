@@ -50,10 +50,22 @@ data_corpus_inaugural %>%
   summary(n = 5)
 ```
 
-
 Filtering documents based on years:
 ```{r}
 data_corpus_inaugural %>%
   filter(President == "Roosevelt") %>%
   summary()
+```
+
+Renaming document variables:
+```{r}
+data_corpus_inaugural %>%
+  rename(LastName = President) %>%
+  select(FirstName, LastName) %>%
+  summary(n = 5)
+```
+
+Glimpse (from **tibble**):
+```{r}
+glimpse(data_corpus_inaugural)
 ```

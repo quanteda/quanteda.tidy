@@ -93,3 +93,34 @@ data_corpus_inaugural %>%
 ##  1941-Roosevelt   526   1519        68 1941 Roosevelt Franklin D. Democratic
 ##  1945-Roosevelt   275    633        26 1945 Roosevelt Franklin D. Democratic
 ```
+
+Renaming document variables:
+
+``` r
+data_corpus_inaugural %>%
+  rename(LastName = President) %>%
+  select(FirstName, LastName) %>%
+  summary(n = 5)
+## Corpus consisting of 58 documents, showing 5 documents:
+## 
+##             Text Types Tokens Sentences FirstName   LastName
+##  1789-Washington   625   1537        23    George Washington
+##  1793-Washington    96    147         4    George Washington
+##       1797-Adams   826   2577        37      John      Adams
+##   1801-Jefferson   717   1923        41    Thomas  Jefferson
+##   1805-Jefferson   804   2380        45    Thomas  Jefferson
+```
+
+Glimpse (from **tibble**):
+
+``` r
+glimpse(data_corpus_inaugural)
+## Rows: 58
+## Columns: 6
+## $ doc_id    <chr> "1789-Washington", "1793-Washington", "1797-Adams", "1801-J…
+## $ text      <chr> "Fellow-Cit…", "Fellow cit…", "When it wa…", "Friends an…",…
+## $ Year      <int> 1789, 1793, 1797, 1801, 1805, 1809, 1813, 1817, 1821, 1825,…
+## $ President <chr> "Washington", "Washington", "Adams", "Jefferson", "Jefferso…
+## $ FirstName <chr> "George", "George", "John", "Thomas", "Thomas", "James", "J…
+## $ Party     <fct> none, none, Federalist, Democratic-Republican, Democratic-R…
+```
