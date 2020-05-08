@@ -9,15 +9,15 @@ test_that("test filter method for textstat data.frames", {
     
     col_test <- filter(col, pattern = "*political*")
     expect_equal(col_test$collocation,
-                 col$collocation[stringi::stri_detect_regex(col$collocation, "political")])
+                 col$collocation[grep("political", col$collocation)])
     
     key_test <- filter(key, pattern = "poli*")
     expect_equal(key_test$feature,
-                 key$feature[stringi::stri_detect_regex(key$feature, "^poli")])
+                 key$feature[grep("^poli", key$feature)])
     
     frq_test <- filter(frq, pattern = "poli*")
     expect_equal(frq_test$feature,
-                 frq$feature[stringi::stri_detect_regex(frq$feature, "^poli")])
+                 frq$feature[grep("^poli", frq$feature)])
     
     dplyr_test <- filter(key, p < .05, pattern = "poli*")
     expect_equivalent(

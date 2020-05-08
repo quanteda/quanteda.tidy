@@ -1,5 +1,3 @@
-# filter for textstat data.frames ------------
-
 #' @importFrom dplyr filter
 #' @export
 dplyr::filter
@@ -19,7 +17,6 @@ dplyr::filter
 #'   \code{\link[quanteda]{textstat_keyness}},
 #'   \code{\link[quanteda]{textstat_frequency}}
 #' @keywords textstat
-#' @import quanteda
 #' @importFrom utils getS3method getFromNamespace
 #' @export
 #' @examples
