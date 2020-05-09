@@ -1,5 +1,5 @@
 #' Wrappers to dplyr functions
-#' 
+#'
 #' Wrapper functions for \pkg{dplyr} functions to preserve texts, document
 #' names, and corpus meta-data.
 #' @param .data input quanteda object

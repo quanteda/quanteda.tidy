@@ -5,11 +5,11 @@
 NULL
 
 #' Return documents with matching conditions
-#' 
+#'
 #' Use `filter()` to select documents where conditions evaluated on document
 #' variables are true. Documents where the condition evaluates to `NA` are
 #' dropped. A tidy replacement for [corpus_subset()][quanteda::corpus_subset()].
-#' 
+#'
 #' @param .data a \pkg{quanteda} object whose documents will be filtered
 #' @param ... Logical predicates defined in terms of the document variables in
 #'   `.data`, or a condition supplied externally whose length matches `the
@@ -21,7 +21,7 @@ NULL
 #' data_corpus_inaugural %>%
 #'     mutate(fullname = paste(FirstName, President, sep = ", ")) %>%
 #'     summary(n = 5)
-#'     
+#'
 filter.corpus <- function(.data, ..., .preserve = FALSE) {
     corpus_stv_bydoc(.data, ..., .preserve = .preserve, fun = dplyr::filter)
 }
@@ -44,22 +44,23 @@ filter.corpus <- function(.data, ..., .preserve = FALSE) {
 #' @importFrom utils getS3method getFromNamespace
 #' @export
 #' @examples
-#' period <- ifelse(docvars(data_corpus_inaugural, "Year") < 1945, "pre-war", "post-war")
+#' period <- ifelse(docvars(data_corpus_inaugural, "Year") < 1945,
+#'                  "pre-war", "post-war")
 #' mydfm <- dfm(data_corpus_inaugural, groups = period)
 #' keyness <- textstat_keyness(mydfm)
 #' filter(keyness, pattern = "america*")
-#' filter(keyness, p < .00001, pattern = "america*") 
+#' filter(keyness, p < .00001, pattern = "america*")
 #' filter(keyness, p < .00001) %>% head()
 filter.textstat <- function(.data, ...,
-                            pattern = NULL, 
+                            pattern = NULL,
                             valuetype = c("glob", "regex", "fixed"),
                             case_insensitive = TRUE) {
-    
+
     attrs <- attributes(.data)
-    
+
     # get regex2id from quanteda
     regex2id <- getFromNamespace("regex2id", "quanteda")
-    
+
     # call dplyr filter, if ... arguments are supplied
     ndots <- function(...) nargs()
     if (length(ndots)) {
@@ -72,7 +73,7 @@ filter.textstat <- function(.data, ...,
         id <- unlist(regex2id(pattern, .data[[1]], valuetype, case_insensitive))
         .data <- .data[id, , drop = FALSE]
     }
-    
+
     # reclass the object as textstat etc.
     class(.data) <- attrs$class
     .data
