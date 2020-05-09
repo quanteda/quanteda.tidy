@@ -12,7 +12,8 @@
 \arguments{
 \item{.data}{a \pkg{quanteda} object with document variables}
 
-\item{...}{comma-separated list of unquoted document variables.  See \link[dplyr:select]{select}.}
+\item{...}{comma-separated list of unquoted document variables.  See
+\link[dplyr:select]{select}.}
 }
 \description{
 Choose or rename document variables.  \code{select()} keeps only the docvars you

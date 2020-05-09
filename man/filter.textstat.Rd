@@ -34,11 +34,12 @@ functions where conditions are true, including matches to features using
 \code{"glob"}, \code{"regex"} or \code{"fixed"} patterns.
 }
 \examples{
-period <- ifelse(docvars(data_corpus_inaugural, "Year") < 1945, "pre-war", "post-war")
+period <- ifelse(docvars(data_corpus_inaugural, "Year") < 1945,
+                 "pre-war", "post-war")
 mydfm <- dfm(data_corpus_inaugural, groups = period)
 keyness <- textstat_keyness(mydfm)
 filter(keyness, pattern = "america*")
-filter(keyness, p < .00001, pattern = "america*") 
+filter(keyness, p < .00001, pattern = "america*")
 filter(keyness, p < .00001) \%>\% head()
 }
 \seealso{

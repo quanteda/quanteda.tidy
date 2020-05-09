@@ -1,6 +1,9 @@
+#' @name glimpse
+#' @rdname glimpse.corpus
+#' @keywords internal
 #' @importFrom tibble glimpse
 #' @export
-tibble::glimpse
+NULL
 
 #' Get a glimpse of a quanteda object
 #'

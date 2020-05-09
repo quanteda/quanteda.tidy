@@ -92,3 +92,34 @@ test_that("corpus select() works", {
         c("Year", "LastName", "FirstName", "Party")
     )
 })
+
+test_that("pull works", {
+    corp <- head(data_corpus_inaugural, 3)
+    expect_identical(
+        corp %>% pull(President),
+        c("Washington", "Washington", "Adams")
+    )
+    expect_identical(
+        corp %>% pull(1),
+        c(1789L, 1793L, 1797L)
+    )
+    expect_identical(
+        corp %>% pull(-1),
+        structure(c(4L, 4L, 3L),
+                  .Label = c("Democratic", "Democratic-Republican",
+                             "Federalist", "none", "Republican", "Whig"),
+                  class = "factor")
+    )
+
+    toks <- tokens(corp)
+    expect_identical(
+        toks %>% pull(President),
+        c("Washington", "Washington", "Adams")
+    )
+
+    dfmat <- dfm(toks)
+    expect_identical(
+        dfmat %>% pull(President),
+        c("Washington", "Washington", "Adams")
+    )
+})

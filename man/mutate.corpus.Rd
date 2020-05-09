@@ -26,7 +26,7 @@ overwrite existing variables of the same name.
 data_corpus_inaugural \%>\%
   mutate(fullname = paste(FirstName, President, sep = ", ")) \%>\%
   summary(n = 5)
-    
+
 data_corpus_inaugural \%>\%
   transmute(fullname = paste(FirstName, President, sep = ", ")) \%>\%
   summary(n = 5)

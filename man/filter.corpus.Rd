@@ -24,5 +24,5 @@ dropped. A tidy replacement for \link[quanteda:corpus_subset]{corpus_subset()}.
 data_corpus_inaugural \%>\%
     mutate(fullname = paste(FirstName, President, sep = ", ")) \%>\%
     summary(n = 5)
-    
+
 }
