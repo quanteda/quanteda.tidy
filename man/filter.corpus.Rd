@@ -17,8 +17,8 @@ is recalculated based on the resulting data, otherwise it is kept as is.}
 }
 \description{
 Use \code{filter()} to select documents where conditions evaluated on document
-variables are true. Documents where the condition evaluates to \code{NA} are dropped.
-A tidy replacement for \link[quanteda:corpus_subset]{corpus_subset()}.
+variables are true. Documents where the condition evaluates to \code{NA} are
+dropped. A tidy replacement for \link[quanteda:corpus_subset]{corpus_subset()}.
 }
 \examples{
 data_corpus_inaugural \%>\%

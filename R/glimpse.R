@@ -16,7 +16,7 @@ tibble::glimpse
 glimpse.corpus <- function(x, width = NULL, ...) {
   text.width <- 10
   texts(x) <- paste0(substring(texts(x), 1, text.width), 
-                     ifelse(nchar(texts(x) > text.width), "\u2026", ""))
+                     ifelse(nchar(texts(x)) > text.width, "\u2026", ""))
   convert(x, to = "data.frame") %>%
     glimpse(width = width)
 }

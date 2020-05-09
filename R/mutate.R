@@ -1,6 +1,10 @@
+# mutate ------------
+
+#' @name mutate
+#' @rdname dplyr_single
 #' @importFrom dplyr mutate
 #' @export
-dplyr::mutate
+NULL
 
 #' Create or transform document variables
 #' 
@@ -17,29 +21,27 @@ dplyr::mutate
 #' @export
 #' @examples
 #' data_corpus_inaugural %>%
-#'     mutate(fullname = paste(FirstName, President, sep = ", ")) %>%
-#'     summary(n = 5)
+#'   mutate(fullname = paste(FirstName, President, sep = ", ")) %>%
+#'   summary(n = 5)
 #'     
 mutate.corpus <- function(.data, ...) {
-  convert(.data, to = "data.frame") %>%
-    mutate(...) %>%
-    corpus(meta = meta(.data))
+  corpus_stv_byvar(.data, ..., fun = dplyr::mutate)
 }
 
+# transmute ------------
 
+#' @name transmute
+#' @rdname dplyr_single
 #' @importFrom dplyr transmute
 #' @export
-dplyr::transmute
+NULL
 
 #' @rdname mutate.corpus
-#' @importFrom quanteda texts
 #' @export
 #' @examples 
 #' data_corpus_inaugural %>%
-#'     transmute(fullname = paste(FirstName, President, sep = ", ")) %>%
-#'     summary(n = 5)
+#'   transmute(fullname = paste(FirstName, President, sep = ", ")) %>%
+#'   summary(n = 5)
 transmute.corpus <- function(.data, ...) {
-  newdv <- convert(.data, to = "data.frame") %>%
-    transmute(...)
-  corpus(texts(.data), docvars = newdv, meta = meta(.data))
+  corpus_stv_byvar(.data, ..., fun = dplyr::transmute)
 }

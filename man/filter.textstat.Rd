@@ -14,9 +14,9 @@
 }
 \arguments{
 \item{.data}{a \code{textstat} object returned from one of the applicable
-\code{textstat_*} functions in \pkg{quanteda}}
+\verb{textstat_*} functions in \pkg{quanteda}}
 
-\item{...}{filter conditions passed to \pkg{dplyr} \code{\link[dplyr]{filter}}}
+\item{...}{filter conditions passed to \pkg{dplyr} \code{\link[dplyr:filter]{dplyr::filter()}}}
 
 \item{pattern}{a character vector, list of character vectors,
 \link[quanteda]{dictionary}, or \link[quanteda]{collocations} object.  See \link[quanteda]{pattern} for
@@ -29,7 +29,7 @@ exact matching. See \link[quanteda]{valuetype} for details.}
 \item{case_insensitive}{ignore case when matching, if \code{TRUE}}
 }
 \description{
-Use filters to find rows of the return objects from many \code{textstat_*()}
+Use filters to find rows of the return objects from many \verb{textstat_*()}
 functions where conditions are true, including matches to features using
 \code{"glob"}, \code{"regex"} or \code{"fixed"} patterns.
 }
@@ -42,8 +42,8 @@ filter(keyness, p < .00001, pattern = "america*")
 filter(keyness, p < .00001) \%>\% head()
 }
 \seealso{
-\code{\link[quanteda]{textstat_collocations}},
-\code{\link[quanteda]{textstat_keyness}},
-\code{\link[quanteda]{textstat_frequency}}
+\code{\link[quanteda:textstat_collocations]{quanteda::textstat_collocations()}},
+\code{\link[quanteda:textstat_keyness]{quanteda::textstat_keyness()}},
+\code{\link[quanteda:textstat_frequency]{quanteda::textstat_frequency()}}
 }
 \keyword{internal}

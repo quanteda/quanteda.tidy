@@ -24,10 +24,10 @@ overwrite existing variables of the same name.
 }
 \examples{
 data_corpus_inaugural \%>\%
-    mutate(fullname = paste(FirstName, President, sep = ", ")) \%>\%
-    summary(n = 5)
+  mutate(fullname = paste(FirstName, President, sep = ", ")) \%>\%
+  summary(n = 5)
     
 data_corpus_inaugural \%>\%
-    transmute(fullname = paste(FirstName, President, sep = ", ")) \%>\%
-    summary(n = 5)
+  transmute(fullname = paste(FirstName, President, sep = ", ")) \%>\%
+  summary(n = 5)
 }

@@ -1,10 +1,12 @@
+#' @name arrange
+#' @rdname dplyr_single
 #' @importFrom dplyr arrange
 #' @export
-dplyr::arrange
+NULL
 
 #' Arrange the document order of a corpus by variables
 #' 
-#' Order the a corpus by variables, including a document variables.
+#' Order the documents in a corpus by variables, including document variables.
 #' @param .data a corpus object whose documents will be sorted
 #' @param ... comma-separated list of unquoted document variables, or
 #'   expressions involving document variables. Use [desc][dplyr::desc()] to 
@@ -16,17 +18,5 @@ dplyr::arrange
 #' arrange(data_corpus_inaugural[1:5], c(3, 2, 1, 5, 4))
 #' arrange(data_corpus_inaugural[1:5], desc(President))
 arrange.corpus <- function(.data, ...) {
-  convert(.data, to = "data.frame") %>%
-    arrange(...) %>%
-    corpus(meta = meta(.data))
+  corpus_stv_bydoc(.data, ..., fun = dplyr::arrange)
 }
-
-#' desc re-export
-#'
-#' See [dplyr::desc()] for details.
-#'
-#' @name desc
-#' @keywords internal
-#' @importFrom dplyr desc
-#' @export
-NULL

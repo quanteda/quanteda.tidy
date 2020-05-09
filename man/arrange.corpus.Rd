@@ -14,7 +14,7 @@ expressions involving document variables. Use \link[dplyr:desc]{desc} to
 sort a variable in descending order.}
 }
 \description{
-Order the a corpus by variables, including a document variables.
+Order the documents in a corpus by variables, including document variables.
 }
 \examples{
 arrange(data_corpus_inaugural[1:5], President)

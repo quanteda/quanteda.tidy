@@ -1,10 +1,14 @@
+#' @name select
+#' @rdname dplyr_single
 #' @importFrom dplyr select
 #' @export
-dplyr::select
+NULL
 
+#' @name rename
+#' @rdname dplyr_single
 #' @importFrom dplyr rename
 #' @export
-dplyr::rename
+NULL
 
 #' Select/rename docvars by name
 #' 
@@ -20,10 +24,7 @@ dplyr::rename
 #'   summary(n = 5)
 #' 
 select.corpus <- function(.data, ...) {
-  doc_id <- text <- NULL
-  convert(.data, to = "data.frame") %>%
-    select(doc_id, text, ...) %>%
-    corpus(meta = meta(.data))
+  corpus_stv_byvar(.data, ..., fun = dplyr::select)
 }
 
 #' @rdname select.corpus
@@ -34,7 +35,5 @@ select.corpus <- function(.data, ...) {
 #'   select(FirstName, LastName) %>%
 #'   summary(n = 5)
 rename.corpus <- function(.data, ...) {
-  convert(.data, to = "data.frame") %>%
-    rename(...) %>%
-    corpus(meta = meta(.data))
+  corpus_stv_byvar(.data, ..., fun = dplyr::rename)
 }
