@@ -34,8 +34,6 @@ NULL
 #' @export
 NULL
 
-n <- dplyr::n
-
 #' Subset documents using their positions
 #'
 #' @description
@@ -67,7 +65,8 @@ n <- dplyr::n
 #' * Document variables are not modified.
 #' @export
 #' @examples
-#' slice(data_corpus_inaugural, 1:3)
+#' slice(data_corpus_inaugural, 2:5)
+#' slice(data_corpus_inaugural, 55:n())
 slice.corpus <- function(.data, ..., .preserve = FALSE) {
     corpus_stv_bydoc(.data, ..., .preserve = .preserve, fun = slice)
 }
@@ -76,9 +75,8 @@ slice.corpus <- function(.data, ..., .preserve = FALSE) {
 #' @export
 #' @examples
 #' slice_head(data_corpus_inaugural, n = 2)
-#' slice_head(data_corpus_inaugural, 1:n())
-slice_head.corpus <- function(.data, ..., .preserve = FALSE) {
-    corpus_stv_bydoc(.data, ..., .preserve = .preserve, fun = slice_head)
+slice_head.corpus <- function(.data, ..., n, prop) {
+    corpus_stv_bydoc(.data, ..., n = n, prop = prop, fun = slice_head)
 }
 
 #' @rdname slice.corpus
@@ -88,7 +86,7 @@ slice_head.corpus <- function(.data, ..., .preserve = FALSE) {
 #' slice_tail(data_corpus_inaugural, prop = .05)
 #' 
 slice_tail.corpus <- function(.data, ..., n, prop) {
-    corpus_stv_bydoc(.data, ..., fun = slice_tail)
+    corpus_stv_bydoc(.data, ..., n = n, prop = prop, fun = slice_tail)
 }
 
 #' @rdname slice.corpus
@@ -99,7 +97,8 @@ slice_tail.corpus <- function(.data, ..., n, prop) {
 #' slice_sample(data_corpus_inaugural, prop = .10, replace = TRUE)
 #' 
 slice_sample.corpus <- function(.data, ..., n, prop, weight_by = NULL, replace = FALSE) {
-    corpus_stv_bydoc(.data, ..., fun = slice_sample)
+    corpus_stv_bydoc(.data, ..., n = n, prop = prop, weight_by = weight_by, 
+                     replace = replace, fun = slice_sample)
 }
 
 #' @rdname slice.corpus
@@ -110,7 +109,8 @@ slice_sample.corpus <- function(.data, ..., n, prop, weight_by = NULL, replace =
 #' # shortest three texts
 #' slice_min(data_corpus_inaugural, ntoks, n = 3)
 slice_min.corpus <- function(.data, ..., n, prop, with_ties = TRUE) {
-    corpus_stv_bydoc(.data, ..., fun = slice_min)
+    corpus_stv_bydoc(.data, ..., n = n, prop = prop, 
+                     with_ties = with_ties, fun = slice_min)
 }
 
 #' @rdname slice.corpus
@@ -119,5 +119,6 @@ slice_min.corpus <- function(.data, ..., n, prop, with_ties = TRUE) {
 #' # longest three texts
 #' slice_max(data_corpus_inaugural, ntoks, n = 3)
 slice_max.corpus <- function(.data, ..., n, prop, with_ties = TRUE) {
-    corpus_stv_bydoc(.data, ..., fun = slice_max)
+    corpus_stv_bydoc(.data, ..., n = n, prop = prop, 
+                     with_ties = with_ties, fun = slice_max)
 }

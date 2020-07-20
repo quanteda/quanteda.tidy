@@ -11,7 +11,7 @@
 \usage{
 \method{slice}{corpus}(.data, ..., .preserve = FALSE)
 
-\method{slice_head}{corpus}(.data, ..., .preserve = FALSE)
+\method{slice_head}{corpus}(.data, ..., n, prop)
 
 \method{slice_tail}{corpus}(.data, ..., n, prop)
 
@@ -75,9 +75,9 @@ of a document variable.
 }
 }
 \examples{
-slice(data_corpus_inaugural, 1:3)
+slice(data_corpus_inaugural, 2:5)
+slice(data_corpus_inaugural, 55:n())
 slice_head(data_corpus_inaugural, n = 2)
-slice_head(data_corpus_inaugural, 1:n())
 slice_tail(data_corpus_inaugural, n = 3)
 slice_tail(data_corpus_inaugural, prop = .05)
 
