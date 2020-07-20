@@ -18,7 +18,7 @@ NULL
 #' tail(data_corpus_inaugural) %>% pull(-1)
 #' tail(data_corpus_inaugural) %>% pull(1)
 #'
-pull.corpus <- function(.data, var = -1) {
+pull.corpus <- function(.data, var = -1, name = NULL, ...) {
   var <- enquo(var)
   pull(docvars(.data), !!var)
 }

@@ -12,8 +12,9 @@
 \item{...}{Logical predicates defined in terms of the document variables in
 \code{.data}, or a condition supplied externally whose length matches \verb{the number of }ndoc(.data)`.  See \link[dplyr:filter]{filter}.}
 
-\item{.preserve}{when \code{FALSE} (the default), the grouping structure
-is recalculated based on the resulting data, otherwise it is kept as is.}
+\item{.preserve}{Relevant when the \code{.data} input is grouped.
+If \code{.preserve = FALSE} (the default), the grouping structure
+is recalculated based on the resulting data, otherwise the grouping is kept as is.}
 }
 \description{
 Use \code{filter()} to select documents where conditions evaluated on document
@@ -22,7 +23,7 @@ dropped. A tidy replacement for \link[quanteda:corpus_subset]{corpus_subset()}.
 }
 \examples{
 data_corpus_inaugural \%>\%
-    mutate(fullname = paste(FirstName, President, sep = ", ")) \%>\%
-    summary(n = 5)
+    filter(Year < 1810) \%>\%
+    summary()
 
 }

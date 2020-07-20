@@ -6,11 +6,11 @@
 \alias{pull.dfm}
 \title{Pull out a single document variable}
 \usage{
-\method{pull}{corpus}(.data, var = -1)
+\method{pull}{corpus}(.data, var = -1, name = NULL, ...)
 
-\method{pull}{tokens}(.data, var = -1)
+\method{pull}{tokens}(.data, var = -1, name = NULL, ...)
 
-\method{pull}{dfm}(.data, var = -1)
+\method{pull}{dfm}(.data, var = -1, name = NULL, ...)
 }
 \arguments{
 \item{.data}{a \pkg{quanteda} object with document variables}
@@ -26,8 +26,13 @@ The default returns the last column (on the assumption that's the
 column you've created most recently).
 
 This argument is taken by expression and supports
-\link[rlang:quasiquotation]{quasiquotation} (you can unquote column
-names and column positions).}
+\link[rlang:nse-force]{quasiquotation} (you can unquote column
+names and column locations).}
+
+\item{name}{An optional parameter that specifies the column to be used
+as names for a named vector. Specified in a similar manner as \code{var}.}
+
+\item{...}{For use by methods.}
 }
 \description{
 Works like \code{$} for \pkg{quanteda} objects with document variables, or like

@@ -1,9 +1,12 @@
 AppVeyor
+dbplyr
 docvar
 docvars
 dplyr
+dtplyr
 Lifecycle
 ndoc
+ortion
 quanteda
 tibble
 tibbles

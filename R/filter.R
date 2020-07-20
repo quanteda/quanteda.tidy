@@ -19,11 +19,11 @@ NULL
 #' @export
 #' @examples
 #' data_corpus_inaugural %>%
-#'     mutate(fullname = paste(FirstName, President, sep = ", ")) %>%
-#'     summary(n = 5)
+#'     filter(Year < 1810) %>%
+#'     summary()
 #'
 filter.corpus <- function(.data, ..., .preserve = FALSE) {
-    corpus_stv_bydoc(.data, ..., .preserve = .preserve, fun = dplyr::filter)
+    corpus_stv_bydoc(.data, ..., .preserve = .preserve, fun = filter)
 }
 
 #' Return rows with matching conditions including feature matches

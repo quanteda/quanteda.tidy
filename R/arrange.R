@@ -18,5 +18,5 @@ NULL
 #' arrange(data_corpus_inaugural[1:5], c(3, 2, 1, 5, 4))
 #' arrange(data_corpus_inaugural[1:5], desc(President))
 arrange.corpus <- function(.data, ...) {
-  corpus_stv_bydoc(.data, ..., fun = dplyr::arrange)
+  corpus_stv_bydoc(.data, ..., fun = arrange)
 }

@@ -25,7 +25,7 @@ NULL
 #'   summary(n = 5)
 #'
 mutate.corpus <- function(.data, ...) {
-  corpus_stv_byvar(.data, ..., fun = dplyr::mutate)
+  corpus_stv_byvar(.data, ..., fun = mutate)
 }
 
 # transmute ------------
@@ -43,5 +43,5 @@ NULL
 #'   transmute(fullname = paste(FirstName, President, sep = ", ")) %>%
 #'   summary(n = 5)
 transmute.corpus <- function(.data, ...) {
-  corpus_stv_byvar(.data, ..., fun = dplyr::transmute)
+  corpus_stv_byvar(.data, ..., fun = transmute)
 }

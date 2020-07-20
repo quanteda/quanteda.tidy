@@ -25,7 +25,7 @@ NULL
 #'   summary(n = 5)
 #'
 select.corpus <- function(.data, ...) {
-  corpus_stv_byvar(.data, ..., fun = dplyr::select)
+  corpus_stv_byvar(.data, ..., fun = select)
 }
 
 #' @rdname select.corpus
@@ -36,5 +36,5 @@ select.corpus <- function(.data, ...) {
 #'   select(FirstName, LastName) %>%
 #'   summary(n = 5)
 rename.corpus <- function(.data, ...) {
-  corpus_stv_byvar(.data, ..., fun = dplyr::rename)
+  corpus_stv_byvar(.data, ..., fun = rename)
 }
