@@ -7,6 +7,9 @@
 #'
 #' `arrange` sorts documents by values of the docvars.
 #' 
+#' `distinct` subsets documents based on distict/unique document variable
+#' values. See [dplyr::distinct()] for more details.
+#' 
 #' `filter` subsets documents. See [dplyr::filter()]
 #' for more details.
 #'
