@@ -10,7 +10,8 @@ Depends:
 Imports:
   dplyr,
   rlang,
-  tibble
+  tibble,
+  tidyselect
 License: GPL-3
 Encoding: UTF-8
 LazyData: true

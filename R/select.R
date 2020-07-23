@@ -4,20 +4,51 @@
 #' @export
 NULL
 
-#' @name rename
-#' @rdname dplyr_single
-#' @importFrom dplyr rename
+# Alias required for help links in downstream packages
+#' @aliases select_helpers
+#' @importFrom tidyselect contains
 #' @export
-NULL
+tidyselect::contains
+#' @importFrom tidyselect ends_with
+#' @export
+tidyselect::ends_with
+#' @importFrom tidyselect everything
+#' @export
+tidyselect::everything
+#' @importFrom tidyselect matches
+#' @export
+tidyselect::matches
+#' @importFrom tidyselect num_range
+#' @export
+tidyselect::num_range
+#' @importFrom tidyselect one_of
+#' @export
+tidyselect::one_of
+#' @importFrom tidyselect starts_with
+#' @export
+tidyselect::starts_with
+#' @importFrom tidyselect last_col
+#' @export
+tidyselect::last_col
+#' @importFrom tidyselect any_of
+#' @export
+tidyselect::any_of
+#' @importFrom tidyselect all_of
+#' @export
+tidyselect::all_of
 
-#' Select/rename docvars by name
+
+#' Subset docvars using their names and types
 #'
-#' Choose or rename document variables.  `select()` keeps only the docvars you
-#' mention; `rename()` keeps all of the docvars.
+#' Select (and optionally rename) document variables in a data frame, using a
+#' concise mini-language that makes it easy to refer to variables based on their
+#' name (e.g. `a:f` selects all columns from `a` on the left to `f` on the
+#' right). You can also use predicate functions like `is.numeric` to select
+#' variables based on their properties.
+#' 
+#' For an overview of selection features, see [dplyr::select()].
 #' @param .data a \pkg{quanteda} object with document variables
-#' @param ... comma-separated list of unquoted document variables.  See
-#'   [select][dplyr::select()].
-#' @importFrom quanteda corpus convert %>% meta
+#' @inheritParams dplyr::select
 #' @export
 #' @examples
 #' data_corpus_inaugural %>%
@@ -26,15 +57,4 @@ NULL
 #'
 select.corpus <- function(.data, ...) {
   corpus_stv_byvar(.data, ..., fun = select)
-}
-
-#' @rdname select.corpus
-#' @export
-#' @examples
-#' data_corpus_inaugural %>%
-#'   rename(LastName = President) %>%
-#'   select(FirstName, LastName) %>%
-#'   summary(n = 5)
-rename.corpus <- function(.data, ...) {
-  corpus_stv_byvar(.data, ..., fun = rename)
 }

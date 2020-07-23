@@ -7,7 +7,7 @@
 #'
 #' `arrange` sorts documents by values of the docvars.
 #' 
-#' `distinct` subsets documents based on distict/unique document variable
+#' `distinct` subsets documents based on distinct/unique document variable
 #' values. See [dplyr::distinct()] for more details.
 #' 
 #' `filter` subsets documents. See [dplyr::filter()]
@@ -16,8 +16,15 @@
 #' `mutate` and `transmute` can add or modify document variables. See
 #' [dplyr::mutate()] for more details.
 #'
-#' `pull` extracts a single docvar as a vector.
-#' See [dplyr::pull()] for more details.
+#' `pull` extracts a single docvar as a vector. See [dplyr::pull()] for more
+#' details.
+#' 
+#' `relocate` changes the column positions of document variables.  See
+#' [dplyr::relocate()] for more details.
+#' 
+#' `rename` changes the names of individual document variables using `new_name =
+#' old_name` syntax; `rename_with()` renames columns of document variables using
+#' a function.  See [dplyr::rename()] for more details.
 #'
 #' `select` and `rename` keep or rename document variables. See
 #' [dplyr::select()] for more details.

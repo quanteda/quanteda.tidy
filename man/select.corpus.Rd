@@ -2,30 +2,31 @@
 % Please edit documentation in R/select.R
 \name{select.corpus}
 \alias{select.corpus}
-\alias{rename.corpus}
-\title{Select/rename docvars by name}
+\title{Subset docvars using their names and types}
 \usage{
 \method{select}{corpus}(.data, ...)
-
-\method{rename}{corpus}(.data, ...)
 }
 \arguments{
 \item{.data}{a \pkg{quanteda} object with document variables}
 
-\item{...}{comma-separated list of unquoted document variables.  See
-\link[dplyr:select]{select}.}
+\item{...}{<\code{\link[dplyr:dplyr_tidy_select]{tidy-select}}> One or more unquoted
+expressions separated by commas. Variable names can be used as if they
+were positions in the data frame, so expressions like \code{x:y} can
+be used to select a range of variables.}
 }
 \description{
-Choose or rename document variables.  \code{select()} keeps only the docvars you
-mention; \code{rename()} keeps all of the docvars.
+Select (and optionally rename) document variables in a data frame, using a
+concise mini-language that makes it easy to refer to variables based on their
+name (e.g. \code{a:f} selects all columns from \code{a} on the left to \code{f} on the
+right). You can also use predicate functions like \code{is.numeric} to select
+variables based on their properties.
+}
+\details{
+For an overview of selection features, see \code{\link[dplyr:select]{dplyr::select()}}.
 }
 \examples{
 data_corpus_inaugural \%>\%
   select(Party, Year) \%>\%
   summary(n = 5)
 
-data_corpus_inaugural \%>\%
-  rename(LastName = President) \%>\%
-  select(FirstName, LastName) \%>\%
-  summary(n = 5)
 }
