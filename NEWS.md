@@ -1,6 +1,3 @@
-# quanteda.tidy 0.1
+# quanteda.tidy 0.3
 
-* Added a `NEWS.md` file to track changes to the package.
-
-
-
+* Updated for (forthcoming) **quanteda** v3

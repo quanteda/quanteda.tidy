@@ -15,7 +15,7 @@
 \item{...}{unused}
 }
 \description{
-Implementation of \link[tibble:glimpse]{glimpse} for \pkg{quanteda} objects,
+Implementation of \link[tibble:reexports]{glimpse} for \pkg{quanteda} objects,
 allowing docvars to be viewed.
 }
 \examples{

@@ -12,14 +12,13 @@ NULL
 #' @param x a corpus or \pkg{quanteda} object
 #' @param width width of the output; default to the width of the console
 #' @param ... unused
-#' @importFrom quanteda texts corpus convert %>% meta `texts<-`
+#' @importFrom quanteda corpus convert %>% meta
 #' @export
 #' @examples
 #' glimpse(data_corpus_inaugural)
 glimpse.corpus <- function(x, width = NULL, ...) {
   text.width <- 10
-  texts(x) <- paste0(substring(texts(x), 1, text.width),
-                     ifelse(nchar(texts(x)) > text.width, "\u2026", ""))
+  x[] <- paste0(substring(x, 1, text.width), ifelse(nchar(x) > text.width, "\u2026", ""))
   convert(x, to = "data.frame") %>%
     glimpse(width = width)
 }

@@ -38,6 +38,7 @@ pull.tokens <- pull.corpus
 #' @examples
 #' dfmat <- data_corpus_inaugural %>%
 #'   tail() %>%
+#'   tokens() %>%
 #'   dfm()
 #' pull(dfmat, President)
 #'

@@ -1,6 +1,8 @@
 context("test textstat_*")
 
 test_that("test filter method for textstat data.frames", {
+    skip_if_not_installed("quanteda.textstats")
+    library("quanteda.textstats")
     toks <- tokens(data_char_ukimmig2010[1:2])
     mt <- dfm(toks)
     col <- textstat_collocations(toks)

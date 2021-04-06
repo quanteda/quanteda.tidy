@@ -4,7 +4,7 @@
 <!-- badges: start -->
 
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/quanteda.tidy)](https://cran.r-project.org/package=quanteda.tidy)
-[![](https://img.shields.io/badge/devel%20version-0.2-royalblue.svg)](https://github.com/quanteda/quanteda.tidy)
+[![](https://img.shields.io/badge/devel%20version-0.3-royalblue.svg)](https://github.com/quanteda/quanteda.tidy)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![R build
@@ -37,19 +37,16 @@ Adding a document variable for full president name:
 ``` r
 library("quanteda.tidy", warn.conflicts = FALSE)
 ## Loading required package: quanteda
-## Package version: 2.1.0.9000
-## Parallel computing: 2 of 12 threads used.
+## Package version: 3.0.0
+## Unicode version: 10.0
+## ICU version: 61.1
+## Parallel computing: 12 of 12 threads used.
 ## See https://quanteda.io for tutorials and examples.
-## 
-## Attaching package: 'quanteda'
-## The following object is masked from 'package:utils':
-## 
-##     View
 
 data_corpus_inaugural %>%
   transmute(fullname = paste(FirstName, President, sep = ", ")) %>%
   summary(n = 5)
-## Corpus consisting of 58 documents, showing 5 documents:
+## Corpus consisting of 59 documents, showing 5 documents:
 ## 
 ##             Text Types Tokens Sentences           fullname
 ##  1789-Washington   625   1537        23 George, Washington
@@ -61,7 +58,7 @@ data_corpus_inaugural %>%
 data_corpus_inaugural %>%
   mutate(fullname = paste(FirstName, President, sep = ", ")) %>%
   summary(n = 5)
-## Corpus consisting of 58 documents, showing 5 documents:
+## Corpus consisting of 59 documents, showing 5 documents:
 ## 
 ##             Text Types Tokens Sentences Year  President FirstName
 ##  1789-Washington   625   1537        23 1789 Washington    George
@@ -100,7 +97,7 @@ data_corpus_inaugural %>%
   rename(LastName = President) %>%
   select(FirstName, LastName) %>%
   summary(n = 5)
-## Corpus consisting of 58 documents, showing 5 documents:
+## Corpus consisting of 59 documents, showing 5 documents:
 ## 
 ##             Text Types Tokens Sentences FirstName   LastName
 ##  1789-Washington   625   1537        23    George Washington
@@ -114,14 +111,14 @@ Glimpse (from **tibble**):
 
 ``` r
 glimpse(data_corpus_inaugural)
-## Rows: 58
+## Rows: 59
 ## Columns: 6
-## $ doc_id    <chr> "1789-Washington", "1793-Washington", "1797-Adams", "1801-J…
-## $ text      <chr> "Fellow-Cit…", "Fellow cit…", "When it wa…", "Friends an…",…
-## $ Year      <int> 1789, 1793, 1797, 1801, 1805, 1809, 1813, 1817, 1821, 1825,…
-## $ President <chr> "Washington", "Washington", "Adams", "Jefferson", "Jefferso…
-## $ FirstName <chr> "George", "George", "John", "Thomas", "Thomas", "James", "J…
-## $ Party     <fct> none, none, Federalist, Democratic-Republican, Democratic-R…
+## $ doc_id    <chr> "1789-Washington", "1793-Washington", "1797-Adams", "1801-Je…
+## $ text      <chr> "Fellow-Cit…", "Fellow cit…", "When it wa…", "Friends an…", …
+## $ Year      <int> 1789, 1793, 1797, 1801, 1805, 1809, 1813, 1817, 1821, 1825, …
+## $ President <chr> "Washington", "Washington", "Adams", "Jefferson", "Jefferson…
+## $ FirstName <chr> "George", "George", "John", "Thomas", "Thomas", "James", "Ja…
+## $ Party     <fct> none, none, Federalist, Democratic-Republican, Democratic-Re…
 ```
 
 Slice operations:
@@ -154,10 +151,16 @@ slice_head(data_corpus_inaugural, prop = .10)
 ## 
 ## 1805-Jefferson :
 ## "Proceeding, fellow citizens, to that qualification which the..."
-slice_tail(data_corpus_inaugural, 3)
-## Corpus consisting of 1 document and 4 docvars.
+slice_tail(data_corpus_inaugural, n = 3)
+## Corpus consisting of 3 documents and 4 docvars.
+## 2013-Obama :
+## "Vice President Biden, Mr. Chief Justice, Members of the Unit..."
+## 
 ## 2017-Trump :
 ## "Chief Justice Roberts, President Carter, President Clinton, ..."
+## 
+## 2021-Biden.txt :
+## "Chief Justice Roberts, Vice President Harris, Speaker Pelosi..."
 
 set.seed(42)
 slice_sample(data_corpus_inaugural, prop = .50)

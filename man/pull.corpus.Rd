@@ -50,6 +50,7 @@ pull(toks, President)
 
 dfmat <- data_corpus_inaugural \%>\%
   tail() \%>\%
+  tokens() \%>\%
   dfm()
 pull(dfmat, President)
 

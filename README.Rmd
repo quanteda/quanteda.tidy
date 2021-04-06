@@ -78,7 +78,7 @@ Slice operations:
 slice(data_corpus_inaugural, 1:3)
 
 slice_head(data_corpus_inaugural, prop = .10)
-slice_tail(data_corpus_inaugural, 3)
+slice_tail(data_corpus_inaugural, n = 3)
 
 set.seed(42)
 slice_sample(data_corpus_inaugural, prop = .50)

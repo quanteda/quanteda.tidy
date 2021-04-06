@@ -28,13 +28,9 @@ test_that("corpus filter() works", {
                                      "Roosevelt", "Roosevelt"),
                        FirstName = c("Theodore", "Franklin D.", "Franklin D.",
                                      "Franklin D.", "Franklin D."),
-                       Party = structure(c(5L, 1L, 1L, 1L, 1L),
-                                         .Label = c("Democratic",
-                                                    "Democratic-Republican",
-                                                    "Federalist", "none",
-                                                    "Republican",
-                                                    "Whig"),
-                                         class = "factor")),
+                       Party = structure(c(5L, 1L, 1L, 1L, 1L), .Label = c("Democratic", 
+                                                                           "Democratic-Republican", "Federalist", "none", "Republican", 
+                                                                           "Whig"), class = "factor")),
                   row.names = c(NA, -5L), class = "data.frame")
     )
     expect_identical(
@@ -55,12 +51,8 @@ test_that("corpus mutate() works", {
                        pyear = paste(President, Year, sep = "_"))),
         structure(list(Year = 1789L, President = "Washington",
                        FirstName = "George",
-                       Party = structure(4L,
-                                         .Label = c("Democratic",
-                                                    "Democratic-Republican",
-                                                    "Federalist", "none",
-                                                    "Republican", "Whig"),
-                                         class = "factor"),
+                       Party = structure(4L, .Label = c("Democratic", "Democratic-Republican", 
+                                                        "Federalist", "none", "Republican", "Whig"), class = "factor"),
                        pyear = "Washington_1789"),
                   row.names = c(NA, -1L), class = "data.frame")
     )

@@ -18,9 +18,8 @@
 
 \item{...}{filter conditions passed to \pkg{dplyr} \code{\link[dplyr:filter]{dplyr::filter()}}}
 
-\item{pattern}{a character vector, list of character vectors,
-\link[quanteda]{dictionary}, or \link[quanteda]{collocations} object.  See \link[quanteda]{pattern} for
-details.}
+\item{pattern}{a character vector, list of character vectors, \link[quanteda]{dictionary},
+or collocations object.  See \link[quanteda]{pattern} for details.}
 
 \item{valuetype}{the type of pattern matching: \code{"glob"} for "glob"-style
 wildcard expressions; \code{"regex"} for regular expressions; or \code{"fixed"} for
@@ -36,15 +35,17 @@ functions where conditions are true, including matches to features using
 \examples{
 period <- ifelse(docvars(data_corpus_inaugural, "Year") < 1945,
                  "pre-war", "post-war")
-mydfm <- dfm(data_corpus_inaugural, groups = period)
-keyness <- textstat_keyness(mydfm)
+mydfm <- tokens(data_corpus_inaugural) \%>\%
+    dfm() \%>\%
+    dfm_group(groups = period)
+keyness <- quanteda.textstats::textstat_keyness(mydfm)
 filter(keyness, pattern = "america*")
 filter(keyness, p < .00001, pattern = "america*")
 filter(keyness, p < .00001) \%>\% head()
 }
 \seealso{
-\code{\link[quanteda:textstat_collocations]{quanteda::textstat_collocations()}},
-\code{\link[quanteda:textstat_keyness]{quanteda::textstat_keyness()}},
-\code{\link[quanteda:textstat_frequency]{quanteda::textstat_frequency()}}
+\code{\link[quanteda.textstats:textstat_collocations]{quanteda.textstats::textstat_collocations()}},
+\code{\link[quanteda.textstats:textstat_keyness]{quanteda.textstats::textstat_keyness()}},
+\code{\link[quanteda.textstats:textstat_frequency]{quanteda.textstats::textstat_frequency()}}
 }
 \keyword{internal}

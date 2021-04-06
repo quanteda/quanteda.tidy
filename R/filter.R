@@ -37,17 +37,19 @@ filter.corpus <- function(.data, ..., .preserve = FALSE) {
 #' @inheritParams quanteda::pattern
 #' @inheritParams quanteda::valuetype
 #' @param case_insensitive ignore case when matching, if `TRUE`
-#' @seealso  [quanteda::textstat_collocations()],
-#'   [quanteda::textstat_keyness()],
-#'   [quanteda::textstat_frequency()]
+#' @seealso  [quanteda.textstats::textstat_collocations()],
+#'   [quanteda.textstats::textstat_keyness()],
+#'   [quanteda.textstats::textstat_frequency()]
 #' @keywords internal
 #' @importFrom utils getS3method getFromNamespace
 #' @export
 #' @examples
 #' period <- ifelse(docvars(data_corpus_inaugural, "Year") < 1945,
 #'                  "pre-war", "post-war")
-#' mydfm <- dfm(data_corpus_inaugural, groups = period)
-#' keyness <- textstat_keyness(mydfm)
+#' mydfm <- tokens(data_corpus_inaugural) %>%
+#'     dfm() %>%
+#'     dfm_group(groups = period)
+#' keyness <- quanteda.textstats::textstat_keyness(mydfm)
 #' filter(keyness, pattern = "america*")
 #' filter(keyness, p < .00001, pattern = "america*")
 #' filter(keyness, p < .00001) %>% head()
@@ -59,7 +61,7 @@ filter.textstat <- function(.data, ...,
     attrs <- attributes(.data)
 
     # get regex2id from quanteda
-    regex2id <- getFromNamespace("regex2id", "quanteda")
+    regex2id <- getFromNamespace("pattern2id", "quanteda")
 
     # call dplyr filter, if ... arguments are supplied
     ndots <- function(...) nargs()
