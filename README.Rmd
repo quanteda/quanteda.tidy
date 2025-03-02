@@ -21,6 +21,8 @@ library("badger")
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![R build status](https://github.com/quanteda/quanteda.tidy/workflows/R-CMD-check/badge.svg)](https://github.com/quanteda/quanteda.tidy/actions)
 [![Coverage Status](https://img.shields.io/codecov/c/github/quanteda/quanteda.tidy/master.svg)](https://codecov.io/github/quanteda/quanteda.tidy?branch=master)
+[![R-CMD-check](https://github.com/quanteda/quanteda.tidy/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/quanteda/quanteda.tidy/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/quanteda/quanteda.tidy/graph/badge.svg)](https://app.codecov.io/gh/quanteda/quanteda.tidy)
 <!-- badges: end -->
 
 
