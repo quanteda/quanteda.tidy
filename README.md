@@ -3,7 +3,7 @@
 
 <!-- badges: start -->
 
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/quanteda.tidy)](https://cran.r-project.org/package=quanteda.tidy)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/quanteda.tidy)](https://cran.r-project.org/package=quanteda.tidy)
 [![](https://img.shields.io/badge/devel%20version-0.3-royalblue.svg)](https://github.com/quanteda/quanteda.tidy)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
@@ -37,10 +37,10 @@ Adding a document variable for full president name:
 ``` r
 library("quanteda.tidy", warn.conflicts = FALSE)
 ## Loading required package: quanteda
-## Package version: 3.0.0
-## Unicode version: 10.0
-## ICU version: 61.1
-## Parallel computing: 12 of 12 threads used.
+## Package version: 3.2.3
+## Unicode version: 14.0
+## ICU version: 70.1
+## Parallel computing: 10 of 10 threads used.
 ## See https://quanteda.io for tutorials and examples.
 
 data_corpus_inaugural %>%
@@ -159,7 +159,7 @@ slice_tail(data_corpus_inaugural, n = 3)
 ## 2017-Trump :
 ## "Chief Justice Roberts, President Carter, President Clinton, ..."
 ## 
-## 2021-Biden.txt :
+## 2021-Biden :
 ## "Chief Justice Roberts, Vice President Harris, Speaker Pelosi..."
 
 set.seed(42)
