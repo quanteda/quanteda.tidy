@@ -1,10 +1,12 @@
-AppVeyor
+CMD
+Codecov
+Lifecycle
+Tidyverse
 dbplyr
 docvar
 docvars
 dplyr
 dtplyr
-Lifecycle
 ndoc
 ortion
 quanteda
@@ -12,4 +14,3 @@ tibble
 tibbles
 tidytext
 tidyverse
-Tidyverse

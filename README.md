@@ -7,10 +7,9 @@
 [![](https://img.shields.io/badge/devel%20version-0.3-royalblue.svg)](https://github.com/quanteda/quanteda.tidy)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![R build
-status](https://github.com/quanteda/quanteda.tidy/workflows/R-CMD-check/badge.svg)](https://github.com/quanteda/quanteda.tidy/actions)
-[![Coverage
-Status](https://img.shields.io/codecov/c/github/quanteda/quanteda.tidy/master.svg)](https://codecov.io/github/quanteda/quanteda.tidy?branch=master)
+[![R-CMD-check](https://github.com/quanteda/quanteda.tidy/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/quanteda/quanteda.tidy/actions/workflows/R-CMD-check.yaml)
+[![Codecov test
+coverage](https://codecov.io/gh/quanteda/quanteda.tidy/graph/badge.svg)](https://app.codecov.io/gh/quanteda/quanteda.tidy)
 <!-- badges: end -->
 
 ## About
@@ -37,9 +36,9 @@ Adding a document variable for full president name:
 ``` r
 library("quanteda.tidy", warn.conflicts = FALSE)
 ## Loading required package: quanteda
-## Package version: 3.2.3
+## Package version: 4.2.1
 ## Unicode version: 14.0
-## ICU version: 70.1
+## ICU version: 71.1
 ## Parallel computing: 10 of 10 threads used.
 ## See https://quanteda.io for tutorials and examples.
 
