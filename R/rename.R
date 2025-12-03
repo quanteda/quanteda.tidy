@@ -38,6 +38,6 @@ rename.corpus <- function(.data, ...) {
 #'   rename_with(toupper, starts_with("P")) %>%
 #'   summary(n = 5)
 rename_with.corpus <- function(.data, .fn, .cols = everything(), ...) {
-  docvars(.data) <- rename_with(docvars(.data), .fn = .fn, .cols = .cols, ...)
+  docvars(.data) <- rename_with(docvars(.data), .fn = .fn, .cols = {{ .cols }}, ...)
   .data
 }
