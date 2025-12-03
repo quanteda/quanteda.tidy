@@ -1,0 +1,341 @@
+---
+title: "Getting started with quanteda.tidy"
+author: "Ken Benoit"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting Started with quanteda.tidy}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "##"
+)
+```
+
+## Introduction
+
+**quanteda.tidy** extends the **quanteda** package with **dplyr**-style verbs
+for manipulating corpus objects. These functions operate on document variables
+(docvars) while preserving the text content and structure of quanteda objects.
+
+Note that **quanteda.tidy** very different from **tidytext**. While tidytext
+converts text to data frames with one token per row, **quanteda.tidy** keeps your
+corpus intact and extends **dplyr** functions to work directly with quanteda
+objects.
+
+```{r setup, message=FALSE}
+library(quanteda.tidy)
+```
+
+## Overview of Functions
+
+The functions in **quanteda.tidy** are organized into four categories,
+following the [dplyr documentation](https://dplyr.tidyverse.org/reference/):
+
+```{r function-table, echo=FALSE}
+func_table <- data.frame(
+  Category = c(
+    rep("Rows", 5),
+    rep("Columns", 6),
+    rep("Groups of rows", 2),
+    "Pairs of data frames"
+  ),
+  Function = c(
+    # Rows
+    "`filter()`", "`slice()`, `slice_head()`, `slice_tail()`",
+    "`slice_sample()`", "`slice_min()`, `slice_max()`", "`arrange()`, `distinct()`",
+    # Columns
+    "`select()`", "`rename()`, `rename_with()`", "`relocate()`",
+    "`mutate()`, `transmute()`", "`pull()`", "`glimpse()`",
+    # Groups
+    "`add_count()`", "`add_tally()`",
+    # Pairs
+    "`left_join()`"
+  ),
+  Description = c(
+    # Rows
+    "Subset documents based on docvar conditions",
+    "Subset documents by position",
+    "Randomly sample documents",
+    "Select documents with min/max docvar values",
+    "Reorder documents; keep unique documents",
+    # Columns
+    "Keep or drop docvars by name",
+    "Rename docvars",
+    "Change docvar column order",
+    "Create or modify docvars",
+    "Extract a single docvar as a vector",
+    "Get a quick overview of the corpus",
+    # Groups
+    "Add count by group as a docvar",
+    "Add total count as a docvar",
+    # Pairs
+    "Join corpus with external data frame"
+  )
+)
+knitr::kable(func_table, caption = "quanteda.tidy functions by category")
+```
+
+## Verbs That Operate on Rows
+
+These functions subset, reorder, or select documents based on their document
+variables or positions.
+
+### Filtering documents
+
+Use `filter()` to keep documents that match specified conditions:
+
+```{r filter}
+# Keep only Roosevelt's speeches
+data_corpus_inaugural %>%
+  filter(President == "Roosevelt") %>%
+  summary()
+```
+
+### Slicing documents by position
+
+Use `slice()` and its variants to select documents by position:
+
+```{r slice}
+# First 3 documents
+slice(data_corpus_inaugural, 1:3)
+
+# First 10%
+slice_head(data_corpus_inaugural, prop = 0.10)
+
+# Last 3 documents
+slice_tail(data_corpus_inaugural, n = 3)
+```
+
+Random sampling:
+
+```{r slice-sample}
+set.seed(42)
+slice_sample(data_corpus_inaugural, n = 5)
+```
+
+Select by minimum or maximum values of a docvar:
+
+```{r slice-minmax}
+# Add token counts first
+corp <- data_corpus_inaugural %>%
+  mutate(n_tokens = ntoken(data_corpus_inaugural))
+
+# Shortest speeches
+slice_min(corp, n_tokens, n = 3)
+
+# Longest speeches
+slice_max(corp, n_tokens, n = 3)
+```
+
+### Arranging documents
+
+Use `arrange()` to reorder documents:
+
+```{r arrange}
+# Sort alphabetically by president
+data_corpus_inaugural[1:5] %>%
+  arrange(President)
+
+# Sort by year descending
+data_corpus_inaugural[1:5] %>%
+  arrange(desc(Year))
+```
+
+### Keeping distinct documents
+
+Use `distinct()` to keep only unique combinations of docvar values:
+```{r distinct}
+# Keep first document for each president
+data_corpus_inaugural %>%
+  distinct(President, .keep_all = TRUE) %>%
+  summary(n = 10)
+```
+
+## Verbs That Operate on Columns
+
+These functions create, modify, rename, reorder, or select document variables.
+
+### Selecting docvars
+
+Use `select()` to keep or drop docvars:
+
+```{r select}
+data_corpus_inaugural %>%
+  select(President, Year) %>%
+  summary(n = 5)
+```
+
+### Renaming docvars
+
+Use `rename()` for direct renaming:
+
+```{r rename}
+data_corpus_inaugural %>%
+  rename(LastName = President, Given = FirstName) %>%
+  summary(n = 5)
+```
+
+Use `rename_with()` to rename using a function:
+
+```{r rename-with}
+data_corpus_inaugural %>%
+  rename_with(toupper) %>%
+  summary(n = 5)
+```
+
+### Relocating docvars
+
+Use `relocate()` to change column order:
+
+```{r relocate}
+data_corpus_inaugural %>%
+  relocate(Party, President) %>%
+  summary(n = 5)
+```
+
+### Creating and modifying docvars
+
+Use `mutate()` to add new docvars or modify existing ones:
+
+```{r mutate}
+data_corpus_inaugural %>%
+  mutate(
+    fullname = paste(FirstName, President, sep = " "),
+    century = floor(Year / 100) + 1
+  ) %>%
+  summary(n = 5)
+```
+
+Use `transmute()` to create new docvars and drop all others:
+
+```{r transmute}
+data_corpus_inaugural %>%
+  transmute(
+    speech_id = paste(Year, President, sep = "-"),
+    party = Party
+  ) %>%
+  summary(n = 5)
+```
+
+### Extracting docvars
+
+Use `pull()` to extract a single docvar as a vector:
+
+```{r pull}
+data_corpus_inaugural %>%
+  filter(Year >= 2000) %>%
+  pull(President)
+```
+
+### Getting an overview
+
+Use `glimpse()` (from **tibble**) to see a compact summary:
+
+```{r glimpse}
+glimpse(data_corpus_inaugural)
+```
+
+## Verbs That Operate on Groups of Rows
+
+These functions compute summaries or add variables based on groups.
+
+### Counting observations
+
+Use `add_count()` to add a count variable by group:
+
+```{r add-count}
+# Count speeches per president
+data_corpus_inaugural %>%
+  add_count(President, name = "n_speeches") %>%
+  filter(n_speeches > 1) %>%
+  summary(n = 10)
+```
+
+Use `add_tally()` to add the total count:
+
+```{r add-tally}
+data_corpus_inaugural %>%
+  slice(1:5) %>%
+  add_tally() %>%
+  summary()
+```
+
+## Verbs That Operate on Pairs of Data Frames
+These functions combine a corpus with an external data frame.
+
+### Joining with external data
+
+Use `left_join()` to add columns from a data frame to your corpus:
+
+```{r left-join}
+# Create some external data
+party_colors <- data.frame(
+  Party = c("Democratic", "Republican", "none", "Federalist",
+            "Democratic-Republican", "Whig"),
+  color = c("blue", "red", "gray", "purple", "green", "orange")
+)
+
+# Join to corpus
+data_corpus_inaugural %>%
+  left_join(party_colors, by = "Party") %>%
+  summary(n = 10)
+```
+
+#### Special handling of document names
+
+`left_join()` provides special handling for joining on document names. Use
+`"docname"` in the `by` argument to match on document names even when
+`"docname"` is not a docvar:
+
+```{r left-join-docname}
+# Create data with document name as key
+doc_metadata <- data.frame(
+  docname = c("1789-Washington", "1793-Washington", "1797-Adams"),
+  notes = c("First inaugural", "Second inaugural", "First Adams speech")
+)
+
+# Join using docname
+data_corpus_inaugural[1:5] %>%
+  left_join(doc_metadata, by = "docname") %>%
+  summary()
+```
+
+You can also match document names to a differently-named column:
+
+```{r left-join-docname2}
+doc_metadata2 <- data.frame(
+  doc_id = c("1789-Washington", "1793-Washington"),
+  rating = c(5, 4)
+)
+
+data_corpus_inaugural[1:5] %>%
+  left_join(doc_metadata2, by = c("docname" = "doc_id")) %>%
+  summary()
+```
+
+## Piping Operations
+
+All **quanteda.tidy** functions work seamlessly with the pipe operator,
+allowing you to chain multiple operations:
+
+```{r piping}
+data_corpus_inaugural %>%
+  # Add metadata
+  mutate(
+    decade = floor(Year / 10) * 10,
+    n_tokens = ntoken(data_corpus_inaugural)
+  ) %>%
+  # Filter to 20th century
+
+  filter(Year >= 1900, Year < 2000) %>%
+  # Keep only relevant columns
+  select(President, Party, decade, n_tokens) %>%
+  # Sort by speech length
+
+  arrange(desc(n_tokens)) %>%
+  summary(n = 10)
+```

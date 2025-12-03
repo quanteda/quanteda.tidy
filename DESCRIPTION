@@ -15,9 +15,12 @@ Imports:
 License: GPL-3
 Encoding: UTF-8
 RoxygenNote: 7.3.3
-Suggests: 
+Suggests:
     covr,
+    knitr,
+    rmarkdown,
     spelling,
     testthat
+VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
 Language: en-GB

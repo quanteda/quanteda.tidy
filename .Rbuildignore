@@ -6,3 +6,6 @@
 ^README\.Rmd$
 ^\.github$
 ^\.claude$
+^doc$
+^Meta$
+^cran-comments\.md$
