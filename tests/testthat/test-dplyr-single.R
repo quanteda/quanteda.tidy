@@ -199,6 +199,32 @@ test_that("corpus relocate() works", {
     )
 })
 
+test_that("corpus rename() works", {
+    corp <- data_corpus_inaugural[1:3]
+
+    # Test renaming a single variable
+    result <- rename(corp, LastName = President)
+    expect_identical(
+        names(docvars(result)),
+        c("Year", "LastName", "FirstName", "Party")
+    )
+    expect_identical(
+        docvars(result)$LastName,
+        c("Washington", "Washington", "Adams")
+    )
+
+    # Test renaming multiple variables
+    result_multi <- rename(corp, LastName = President, Given = FirstName)
+    expect_identical(
+        names(docvars(result_multi)),
+        c("Year", "LastName", "Given", "Party")
+    )
+
+    # Verify document order and texts are preserved
+    expect_identical(docnames(result), docnames(corp))
+    expect_identical(as.character(result), as.character(corp))
+})
+
 test_that("corpus rename_with() works", {
     corp <- data_corpus_inaugural[1:3]
 
