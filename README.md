@@ -6,7 +6,7 @@
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/quanteda.tidy)](https://cran.r-project.org/package=quanteda.tidy)
 [![](https://img.shields.io/badge/devel%20version-0.3-royalblue.svg)](https://github.com/quanteda/quanteda.tidy)
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://tidyverse.org/lifecycle/#experimental)
 [![R-CMD-check](https://github.com/quanteda/quanteda.tidy/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/quanteda/quanteda.tidy/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
 coverage](https://codecov.io/gh/quanteda/quanteda.tidy/graph/badge.svg)](https://app.codecov.io/gh/quanteda/quanteda.tidy)

@@ -1,9 +1,9 @@
 Package: quanteda.tidy
-Title: Tidyverse extensions to the quanteda
+Title: Tidyverse Extensions for 'quanteda'
 Version: 0.3
 Authors@R: c( person("Kenneth", "Benoit", email = "kbenoit@lse.ac.uk", role =
     c("aut", "cre", "cph")) )
-Description: Adds tidy functionality, especially dplyr functions, to quanteda objects.
+Description: Adds tidy functionality, especially 'dplyr' functions, to 'quanteda' objects.
 Depends:
   R (>= 3.5.0),
   quanteda (>= 3.0.0)
