@@ -338,3 +338,86 @@ test_that("corpus slice_max() works", {
     result_ties <- slice_max(corp_ties, Year, n = 1, with_ties = TRUE)
     expect_true(ndoc(result_ties) >= 1)
 })
+
+test_that("corpus add_count() works", {
+    corp <- data_corpus_inaugural[1:10]
+
+    # Test basic add_count by single variable
+    result <- add_count(corp, President)
+    expect_true("n" %in% names(docvars(result)))
+    expect_equal(ndoc(result), ndoc(corp))
+
+    # Check that Washington has count of 2 (appears twice in first 10)
+    washington_count <- unique(docvars(result)[docvars(result)$President == "Washington", "n"])
+    expect_equal(washington_count, 2)
+
+    # Test add_count with custom name
+    result_custom <- add_count(corp, President, name = "pres_count")
+    expect_true("pres_count" %in% names(docvars(result_custom)))
+    expect_false("n" %in% names(docvars(result_custom)))
+
+    # Test add_count by multiple variables
+    result_multi <- add_count(corp, President, Party)
+    expect_true("n" %in% names(docvars(result_multi)))
+
+    # Test add_count with sort
+    result_sort <- add_count(corp, President, sort = TRUE)
+    expect_true("n" %in% names(docvars(result_sort)))
+    # First document should have the highest count or tied for highest
+    first_count <- docvars(result_sort)$n[1]
+    expect_true(first_count >= max(docvars(result_sort)$n) - 1)
+
+    # Verify original docvars are preserved
+    expect_true(all(c("Year", "President", "FirstName", "Party") %in% names(docvars(result))))
+})
+
+test_that("corpus add_tally() works", {
+    corp <- data_corpus_inaugural[1:10]
+
+    # Test basic add_tally (adds total count to each row)
+    result <- add_tally(corp)
+    expect_true("n" %in% names(docvars(result)))
+    expect_equal(ndoc(result), ndoc(corp))
+
+    # All rows should have the same count (total number of documents)
+    expect_true(all(docvars(result)$n == 10))
+
+    # Test add_tally with custom name
+    result_custom <- add_tally(corp, name = "total")
+    expect_true("total" %in% names(docvars(result_custom)))
+    expect_false("n" %in% names(docvars(result_custom)))
+    expect_true(all(docvars(result_custom)$total == 10))
+
+    # Test add_tally with a subset that has duplicates
+    corp_subset <- data_corpus_inaugural[c(1, 1, 2, 2, 2, 3)]
+    result_subset <- add_tally(corp_subset)
+    expect_equal(ndoc(result_subset), 6)
+    expect_true(all(docvars(result_subset)$n == 6))
+
+    # Verify original docvars are preserved
+    expect_true(all(c("Year", "President", "FirstName", "Party") %in% names(docvars(result))))
+})
+
+test_that("add_count() and add_tally() with wt argument", {
+    corp <- data_corpus_inaugural[1:10]
+
+    # Create a corpus with a weight variable
+    corp_wt <- mutate(corp, weight = Year - min(Year) + 1)
+
+    # Test add_count with weights
+    result_count_wt <- add_count(corp_wt, President, wt = weight)
+    expect_true("n" %in% names(docvars(result_count_wt)))
+
+    # Check that weighted count for Washington is sum of weights
+    # Washington appears at indices 1 and 2 (years 1789 and 1793)
+    # weights are: (1789-1789+1)=1 and (1793-1789+1)=5, sum=6
+    washington_weighted <- unique(docvars(result_count_wt)[docvars(result_count_wt)$President == "Washington", "n"])
+    expect_equal(washington_weighted, 6)
+
+    # Test add_tally with weights
+    result_tally_wt <- add_tally(corp_wt, wt = weight)
+    expect_true("n" %in% names(docvars(result_tally_wt)))
+    # All rows should have the same weighted total
+    expected_total <- sum(docvars(corp_wt)$weight)
+    expect_true(all(docvars(result_tally_wt)$n == expected_total))
+})
