@@ -1,5 +1,5 @@
 #' @name filter
-#' @rdname dplyr_single
+#' @rdname dplyr_rows
 #' @importFrom dplyr filter
 #' @export
 NULL

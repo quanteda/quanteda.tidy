@@ -1,35 +1,35 @@
 #' @name slice
-#' @rdname dplyr_single
+#' @rdname dplyr_rows
 #' @importFrom dplyr slice
 #' @export
 NULL
 
 #' @name slice_head
-#' @rdname dplyr_single
+#' @rdname dplyr_rows
 #' @importFrom dplyr slice_head
 #' @export
 NULL
 
 #' @name slice_tail
-#' @rdname dplyr_single
+#' @rdname dplyr_rows
 #' @importFrom dplyr slice_tail
 #' @export
 NULL
 
 #' @name slice_sample
-#' @rdname dplyr_single
+#' @rdname dplyr_rows
 #' @importFrom dplyr slice_sample
 #' @export
 NULL
 
 #' @name slice_min
-#' @rdname dplyr_single
+#' @rdname dplyr_rows
 #' @importFrom dplyr slice_min
 #' @export
 NULL
 
 #' @name slice_max
-#' @rdname dplyr_single
+#' @rdname dplyr_rows
 #' @importFrom dplyr slice_max
 #' @export
 NULL

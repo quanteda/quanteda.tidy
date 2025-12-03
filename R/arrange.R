@@ -1,5 +1,5 @@
 #' @name arrange
-#' @rdname dplyr_single
+#' @rdname dplyr_rows
 #' @importFrom dplyr arrange
 #' @export
 NULL

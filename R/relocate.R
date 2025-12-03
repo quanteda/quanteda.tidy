@@ -1,5 +1,5 @@
 #' @name relocate
-#' @rdname dplyr_single
+#' @rdname dplyr_cols
 #' @importFrom dplyr relocate
 #' @export
 NULL

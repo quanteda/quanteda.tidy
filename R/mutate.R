@@ -1,7 +1,7 @@
 # mutate ------------
 
 #' @name mutate
-#' @rdname dplyr_single
+#' @rdname dplyr_cols
 #' @importFrom dplyr mutate
 #' @export
 NULL
@@ -31,7 +31,7 @@ mutate.corpus <- function(.data, ...) {
 # transmute ------------
 
 #' @name transmute
-#' @rdname dplyr_single
+#' @rdname dplyr_cols
 #' @importFrom dplyr transmute
 #' @export
 NULL

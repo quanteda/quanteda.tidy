@@ -1,5 +1,5 @@
 #' @name add_count
-#' @rdname dplyr_single
+#' @rdname dplyr_groups
 #' @importFrom dplyr add_count
 #' @export
 NULL

@@ -1,5 +1,5 @@
 #' @name pull
-#' @rdname dplyr_single
+#' @rdname dplyr_cols
 #' @importFrom dplyr pull
 #' @export
 NULL

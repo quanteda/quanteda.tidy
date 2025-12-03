@@ -1,5 +1,5 @@
 #' @name distinct
-#' @rdname dplyr_single
+#' @rdname dplyr_rows
 #' @importFrom dplyr distinct
 #' @export
 NULL

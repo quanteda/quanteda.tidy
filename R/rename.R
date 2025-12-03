@@ -1,11 +1,11 @@
 #' @name rename
-#' @rdname dplyr_single
+#' @rdname dplyr_cols
 #' @importFrom dplyr rename
 #' @export
 NULL
 
 #' @name rename_with
-#' @rdname dplyr_single
+#' @rdname dplyr_cols
 #' @importFrom dplyr rename_with
 #' @export
 NULL
