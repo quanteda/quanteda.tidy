@@ -18,7 +18,7 @@ library("badger")
 <!-- badges: start -->
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/quanteda.tidy)](https://cran.r-project.org/package=quanteda.tidy)
 `r badge_devel("quanteda/quanteda.tidy", "royalblue")`
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://tidyverse.org/lifecycle/#experimental)
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/quanteda/quanteda.tidy/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/quanteda/quanteda.tidy/actions/workflows/R-CMD-check.yaml)
 [![Codecov test coverage](https://codecov.io/gh/quanteda/quanteda.tidy/graph/badge.svg)](https://app.codecov.io/gh/quanteda/quanteda.tidy)
 <!-- badges: end -->
@@ -44,48 +44,62 @@ pak::pkg_install("quanteda/quanteda.tidy")
 ```
 
 
-## Examples
+## Overview of Functions
+
+The functions in **quanteda.tidy** are organized into four categories,
+following the [dplyr documentation](https://dplyr.tidyverse.org/reference/):
+
+```{r function-table, echo=FALSE}
+func_table <- data.frame(
+  Category = c(
+    rep("Rows", 5),
+    rep("Columns", 6),
+    rep("Groups of rows", 2),
+    "Pairs of data frames"
+  ),
+  Function = c(
+    # Rows
+    "`filter()`", "`slice()`, `slice_head()`, `slice_tail()`",
+    "`slice_sample()`", "`slice_min()`, `slice_max()`", "`arrange()`, `distinct()`",
+    # Columns
+    "`select()`", "`rename()`, `rename_with()`", "`relocate()`",
+    "`mutate()`, `transmute()`", "`pull()`", "`glimpse()`",
+    # Groups
+    "`add_count()`", "`add_tally()`",
+    # Pairs
+    "`left_join()`"
+  ),
+  Description = c(
+    # Rows
+    "Subset documents based on docvar conditions",
+    "Subset documents by position",
+    "Randomly sample documents",
+    "Select documents with min/max docvar values",
+    "Reorder documents; keep unique documents",
+    # Columns
+    "Keep or drop docvars by name",
+    "Rename docvars",
+    "Change docvar column order",
+    "Create or modify docvars",
+    "Extract a single docvar as a vector",
+    "Get a quick overview of the corpus",
+    # Groups
+    "Add count by group as a docvar",
+    "Add total count as a docvar",
+    # Pairs
+    "Join corpus with external data frame"
+  )
+)
+knitr::kable(func_table)
+```
+
+## Example
 
 Adding a document variable for full president name:
 ```{r}
 library("quanteda.tidy", warn.conflicts = FALSE)
 
 data_corpus_inaugural %>%
-  transmute(fullname = paste(FirstName, President, sep = ", ")) %>%
-  summary(n = 5)
-
-data_corpus_inaugural %>%
   mutate(fullname = paste(FirstName, President, sep = ", ")) %>%
   summary(n = 5)
-```
-
-Filtering documents based on years:
-```{r}
-data_corpus_inaugural %>%
-  filter(President == "Roosevelt") %>%
-  summary()
-```
-
-Renaming document variables:
-```{r}
-data_corpus_inaugural %>%
-  rename(LastName = President) %>%
-  select(FirstName, LastName) %>%
-  summary(n = 5)
-```
-
-Glimpse (from **tibble**):
-```{r}
-glimpse(data_corpus_inaugural)
-```
-
-Slice operations:
-```{r}
-slice(data_corpus_inaugural, 1:3)
-
-slice_head(data_corpus_inaugural, prop = .10)
-slice_tail(data_corpus_inaugural, n = 3)
-
-set.seed(42)
-slice_sample(data_corpus_inaugural, prop = .50)
 ```

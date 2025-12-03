@@ -4,12 +4,12 @@
 \name{quanteda.tidy-package}
 \alias{quanteda.tidy}
 \alias{quanteda.tidy-package}
-\title{quanteda.tidy: Tidyverse Extensions for 'quanteda'}
+\title{quanteda.tidy: 'tidyverse' Extensions for 'quanteda'}
 \description{
 Adds tidy functionality, especially 'dplyr' functions, to 'quanteda' objects.
 }
 \author{
-\strong{Maintainer}: Kenneth Benoit \email{kbenoit@lse.ac.uk} [copyright holder]
+\strong{Maintainer}: Kenneth Benoit \email{kbenoit@smu.edu.sg} [copyright holder]
 
 }
 \keyword{internal}
