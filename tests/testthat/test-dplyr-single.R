@@ -116,6 +116,26 @@ test_that("pull works", {
     )
 })
 
+test_that("pull gives informative error with empty docvars", {
+    corp <- corpus(letters[1:3])
+    expect_error(
+        pull(corp),
+        "Cannot extract document variables: corpus has no docvars"
+    )
+
+    toks <- tokens(corp)
+    expect_error(
+        pull(toks),
+        "Cannot extract document variables: corpus has no docvars"
+    )
+
+    dfmat <- dfm(toks)
+    expect_error(
+        pull(dfmat),
+        "Cannot extract document variables: corpus has no docvars"
+    )
+})
+
 test_that("corpus distinct() works", {
     # Test distinct with .keep_all = FALSE (default behavior)
     corp <- data_corpus_inaugural[c(1, 2, 4)]  # Washington, Washington, Jefferson

@@ -20,7 +20,11 @@ NULL
 #'
 pull.corpus <- function(.data, var = -1, name = NULL, ...) {
   var <- enquo(var)
-  pull(docvars(.data), !!var)
+  dv <- docvars(.data)
+  if (ncol(dv) == 0) {
+    stop("Cannot extract document variables: corpus has no docvars", call. = FALSE)
+  }
+  pull(dv, !!var)
 }
 
 #' @rdname pull.corpus
