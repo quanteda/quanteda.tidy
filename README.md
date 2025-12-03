@@ -23,10 +23,16 @@ variables, but extends these functions (from **dplyr**) to work on
 
 ## Installation
 
-You can install **quanteda.tidy** from GitHub with:
+You can install the stable version of **quanteda.tidy** from CRAN:
 
 ``` r
-devtools::install_github("quanteda/quanteda.tidy")
+install.packages("quanteda.tidy")
+```
+
+Or install the development version from GitHub:
+
+``` r
+pak::pkg_install("quanteda/quanteda.tidy")
 ```
 
 ## Examples
@@ -36,16 +42,16 @@ Adding a document variable for full president name:
 ``` r
 library("quanteda.tidy", warn.conflicts = FALSE)
 ## Loading required package: quanteda
-## Package version: 4.2.1
+## Package version: 4.3.1
 ## Unicode version: 14.0
 ## ICU version: 71.1
-## Parallel computing: 10 of 10 threads used.
+## Parallel computing: disabled
 ## See https://quanteda.io for tutorials and examples.
 
 data_corpus_inaugural %>%
   transmute(fullname = paste(FirstName, President, sep = ", ")) %>%
   summary(n = 5)
-## Corpus consisting of 59 documents, showing 5 documents:
+## Corpus consisting of 60 documents, showing 5 documents:
 ## 
 ##             Text Types Tokens Sentences           fullname
 ##  1789-Washington   625   1537        23 George, Washington
@@ -57,7 +63,7 @@ data_corpus_inaugural %>%
 data_corpus_inaugural %>%
   mutate(fullname = paste(FirstName, President, sep = ", ")) %>%
   summary(n = 5)
-## Corpus consisting of 59 documents, showing 5 documents:
+## Corpus consisting of 60 documents, showing 5 documents:
 ## 
 ##             Text Types Tokens Sentences Year  President FirstName
 ##  1789-Washington   625   1537        23 1789 Washington    George
@@ -96,7 +102,7 @@ data_corpus_inaugural %>%
   rename(LastName = President) %>%
   select(FirstName, LastName) %>%
   summary(n = 5)
-## Corpus consisting of 59 documents, showing 5 documents:
+## Corpus consisting of 60 documents, showing 5 documents:
 ## 
 ##             Text Types Tokens Sentences FirstName   LastName
 ##  1789-Washington   625   1537        23    George Washington
@@ -110,7 +116,7 @@ Glimpse (from **tibble**):
 
 ``` r
 glimpse(data_corpus_inaugural)
-## Rows: 59
+## Rows: 60
 ## Columns: 6
 ## $ doc_id    <chr> "1789-Washington", "1793-Washington", "1797-Adams", "1801-Je…
 ## $ text      <chr> "Fellow-Cit…", "Fellow cit…", "When it wa…", "Friends an…", …
@@ -135,7 +141,7 @@ slice(data_corpus_inaugural, 1:3)
 ## "When it was first perceived, in early times, that no middle ..."
 
 slice_head(data_corpus_inaugural, prop = .10)
-## Corpus consisting of 5 documents and 4 docvars.
+## Corpus consisting of 6 documents and 4 docvars.
 ## 1789-Washington :
 ## "Fellow-Citizens of the Senate and of the House of Representa..."
 ## 
@@ -150,20 +156,23 @@ slice_head(data_corpus_inaugural, prop = .10)
 ## 
 ## 1805-Jefferson :
 ## "Proceeding, fellow citizens, to that qualification which the..."
+## 
+## 1809-Madison :
+## "Unwilling to depart from examples of the most revered author..."
 slice_tail(data_corpus_inaugural, n = 3)
 ## Corpus consisting of 3 documents and 4 docvars.
-## 2013-Obama :
-## "Vice President Biden, Mr. Chief Justice, Members of the Unit..."
-## 
 ## 2017-Trump :
 ## "Chief Justice Roberts, President Carter, President Clinton, ..."
 ## 
 ## 2021-Biden :
 ## "Chief Justice Roberts, Vice President Harris, Speaker Pelosi..."
+## 
+## 2025-Trump :
+## "Thank you.  Thank you very much, everybody.  Wow.  Thank you..."
 
 set.seed(42)
 slice_sample(data_corpus_inaugural, prop = .50)
-## Corpus consisting of 29 documents and 4 docvars.
+## Corpus consisting of 30 documents and 4 docvars.
 ## 1981-Reagan :
 ## "Senator Hatfield, Mr. Chief Justice, Mr. President, Vice Pre..."
 ## 
@@ -182,5 +191,5 @@ slice_sample(data_corpus_inaugural, prop = .50)
 ## 1929-Hoover :
 ## "My Countrymen: This occasion is not alone the administration..."
 ## 
-## [ reached max_ndoc ... 23 more documents ]
+## [ reached max_ndoc ... 24 more documents ]
 ```

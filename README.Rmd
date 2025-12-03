@@ -31,10 +31,16 @@ Note that this is not the same as **tidytext**, which stretches tokens into data
 
 ## Installation
 
-You can install **quanteda.tidy** from GitHub with:
+You can install the stable version of **quanteda.tidy** from CRAN:
 
 ```{r eval = FALSE}
-devtools::install_github("quanteda/quanteda.tidy")
+install.packages("quanteda.tidy")
+```
+
+Or install the development version from GitHub:
+
+```{r eval = FALSE}
+pak::pkg_install("quanteda/quanteda.tidy")
 ```
 
 

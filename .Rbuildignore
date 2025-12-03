@@ -5,3 +5,4 @@
 ^codecov\.yml$
 ^README\.Rmd$
 ^\.github$
+^\.claude$
