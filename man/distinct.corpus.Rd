@@ -16,6 +16,10 @@ expressions involving document variables}
 If a combination of \code{...} is not distinct, this keeps the
 first row of values.}
 }
+\value{
+A corpus containing only documents with unique combinations of the
+specified document variables.
+}
 \description{
 Select only documents that are unique/distinct with respect to values of
 their document variables.

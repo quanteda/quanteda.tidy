@@ -3,7 +3,7 @@ Title: 'tidyverse' Extensions for 'quanteda'
 Version: 0.4
 Authors@R: c( person("Kenneth", "Benoit", email = "kbenoit@smu.edu.sg", role =
     c("aut", "cre", "cph")) )
-Description: Adds tidy functionality, especially 'dplyr' functions, to 'quanteda' objects.
+Description: Enables 'tidyverse' operations on 'quanteda' corpus objects by extending 'dplyr' verbs to work directly with corpus objects and their document-level variables ('docvars'). Implements row operations for 'subsetting' and reordering documents; column operations for managing document variables; grouped operations; and two-table verbs for merging external data. For more on 'quanteda' see 'Benoit et al.' (2018) <doi:10.21105/joss.00774>. For 'dplyr' see 'Wickham et al.' (2023) <doi:10.32614/CRAN.package.dplyr>.
 Depends:
   R (>= 3.5.0),
   quanteda (>= 3.0.0)

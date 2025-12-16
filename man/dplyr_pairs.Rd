@@ -4,6 +4,16 @@
 \alias{dplyr_pairs}
 \alias{left_join}
 \title{Verbs that operate on pairs of data frames}
+\arguments{
+\item{x}{a \pkg{quanteda} corpus object}
+
+\item{y}{a data frame to join with}
+
+\item{...}{additional arguments passed to methods}
+}
+\value{
+A corpus with document variables from both \code{x} and \code{y}.
+}
 \description{
 These functions combine a \pkg{quanteda} object with a data frame, adding
 new document variables based on matching values.

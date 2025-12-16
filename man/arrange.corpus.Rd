@@ -13,6 +13,10 @@
 expressions involving document variables. Use \link[dplyr:desc]{desc} to
 sort a variable in descending order.}
 }
+\value{
+A corpus with documents reordered according to the specified
+variables.
+}
 \description{
 Order the documents in a corpus by variables, including document variables.
 }

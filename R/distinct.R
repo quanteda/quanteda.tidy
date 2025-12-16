@@ -12,6 +12,8 @@ NULL
 #' @param ... comma-separated list of unquoted document variables, or
 #'   expressions involving document variables
 #' @inheritParams dplyr::distinct
+#' @return A corpus containing only documents with unique combinations of the
+#'   specified document variables.
 #' @importFrom dplyr distinct select left_join
 #' @importFrom quanteda convert corpus meta
 #' @export

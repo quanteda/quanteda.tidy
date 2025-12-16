@@ -11,6 +11,8 @@ NULL
 #' @param ... comma-separated list of unquoted document variables, or
 #'   expressions involving document variables. Use [desc][dplyr::desc()] to
 #'   sort a variable in descending order.
+#' @return A corpus with documents reordered according to the specified
+#'   variables.
 #' @importFrom quanteda corpus convert %>% meta
 #' @export
 #' @examples

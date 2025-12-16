@@ -7,6 +7,10 @@
 #' based on a key variable. All documents in `x` are kept. See
 #' [dplyr::left_join()] for more details.
 #'
+#' @param x a \pkg{quanteda} corpus object
+#' @param y a data frame to join with
+#' @param ... additional arguments passed to methods
+#' @return A corpus with document variables from both `x` and `y`.
 #' @name dplyr_pairs
 #' @keywords internal
 NULL

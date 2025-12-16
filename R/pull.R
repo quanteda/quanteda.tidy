@@ -10,6 +10,7 @@ NULL
 #' `docvars(x, "varname")`.
 #' @param .data a \pkg{quanteda} object with document variables
 #' @inheritParams dplyr::pull
+#' @return A vector containing the values of the specified document variable.
 #' @importFrom rlang enquo
 #' @importFrom quanteda docvars
 #' @export

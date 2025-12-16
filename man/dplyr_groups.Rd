@@ -4,6 +4,14 @@
 \alias{add_count}
 \alias{dplyr_groups}
 \title{Verbs that operate on groups of rows}
+\arguments{
+\item{x}{a \pkg{quanteda} corpus object}
+
+\item{...}{additional arguments passed to methods}
+}
+\value{
+A corpus with an additional document variable containing counts.
+}
 \description{
 These functions operate on groups of rows (documents) of \pkg{quanteda}
 objects, typically counting or summarising documents by group.

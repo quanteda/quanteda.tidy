@@ -16,6 +16,10 @@
 #'
 #' See [group_data()] for equivalent functions that return values for all
 #' groups.
+#' @param ... not used; present for compatibility with the generic
+#' @return Context-dependent: `n()` returns an integer; `cur_group_id()` returns
+#'   an integer; `cur_group()` returns a tibble; `cur_data()` and `cur_data_all()`
+#'   return tibbles; `cur_column()` returns a character string.
 #' @name dplyr_context
 #' @keywords internal
 NULL

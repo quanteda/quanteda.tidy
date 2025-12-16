@@ -17,6 +17,9 @@
 #' `slice_max()`, `slice_sample()`) select documents by their (integer)
 #' positions. See [dplyr::slice()] for more details.
 #'
+#' @param .data a \pkg{quanteda} corpus object
+#' @param ... additional arguments passed to methods
+#' @return A corpus, subsetted or reordered according to the operation.
 #' @name dplyr_rows
 #' @keywords internal
 NULL

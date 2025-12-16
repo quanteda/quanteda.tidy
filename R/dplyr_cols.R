@@ -21,6 +21,9 @@
 #' `select()` keeps or drops document variables by name. See [dplyr::select()]
 #' for more details.
 #'
+#' @param .data a \pkg{quanteda} corpus object
+#' @param ... additional arguments passed to methods
+#' @return A corpus with modified document variables, or for `pull()`, a vector.
 #' @name dplyr_cols
 #' @keywords internal
 NULL

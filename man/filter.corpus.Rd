@@ -16,6 +16,10 @@
 If \code{.preserve = FALSE} (the default), the grouping structure
 is recalculated based on the resulting data, otherwise the grouping is kept as is.}
 }
+\value{
+A corpus containing only documents that satisfy the specified
+conditions.
+}
 \description{
 Use \code{filter()} to select documents where conditions evaluated on document
 variables are true. Documents where the condition evaluates to \code{NA} are

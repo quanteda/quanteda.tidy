@@ -11,6 +11,9 @@ add_tally(x, ...)
 
 \item{...}{additional arguments passed to methods}
 }
+\value{
+A corpus with an additional document variable containing counts.
+}
 \description{
 \code{add_tally} is a generic function for adding a count column. The default
 method calls \code{\link[dplyr:count]{dplyr::add_tally()}}.

@@ -23,6 +23,9 @@ return a character vector the same length as the input.}
 \item{.cols}{<\code{\link[dplyr:dplyr_tidy_select]{tidy-select}}> Columns to rename;
 defaults to all columns.}
 }
+\value{
+A corpus with renamed document variables.
+}
 \description{
 \code{rename()} changes the names of individual document variables using \code{new_name = old_name} syntax; \code{rename_with()} renames columns using a function.
 }

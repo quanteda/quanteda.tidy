@@ -12,6 +12,8 @@ NULL
 #' @param x a corpus or \pkg{quanteda} object
 #' @param width width of the output; default to the width of the console
 #' @param ... unused
+#' @return Invisibly returns the input corpus. Called primarily for its
+#'   side effect of printing a summary to the console.
 #' @importFrom quanteda corpus convert %>% meta
 #' @export
 #' @examples

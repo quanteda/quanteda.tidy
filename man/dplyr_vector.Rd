@@ -4,6 +4,12 @@
 \alias{dplyr_vector}
 \alias{desc}
 \title{Vector functions from dplyr}
+\arguments{
+\item{x}{a vector to transform}
+}
+\value{
+A transformed vector of the same length as the input.
+}
 \description{
 Selected vector functions, re-exported.
 

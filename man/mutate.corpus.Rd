@@ -16,6 +16,9 @@ or transformed}
 \item{...}{name-value pairs of expressions for document variable modification
 or assignment; see \link[dplyr:mutate]{mutate}.}
 }
+\value{
+A corpus with new or modified document variables.
+}
 \description{
 \code{mutate()} adds new \link[quanteda:docvars]{document variables} and preserves
 existing ones; \code{transmute()} adds new document variables and drops existing

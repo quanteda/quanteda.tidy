@@ -13,6 +13,14 @@
 \alias{slice_min}
 \alias{slice_max}
 \title{Verbs that operate on rows}
+\arguments{
+\item{.data}{a \pkg{quanteda} corpus object}
+
+\item{...}{additional arguments passed to methods}
+}
+\value{
+A corpus, subsetted or reordered according to the operation.
+}
 \description{
 These functions operate on the rows (documents) of \pkg{quanteda} objects,
 subsetting, reordering, or selecting distinct documents based on document

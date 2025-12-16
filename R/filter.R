@@ -15,6 +15,8 @@ NULL
 #'   `.data`, or a condition supplied externally whose length matches `the
 #'   number of `ndoc(.data)`.  See [filter][dplyr::filter()].
 #' @inheritParams dplyr::filter
+#' @return A corpus containing only documents that satisfy the specified
+#'   conditions.
 #' @importFrom quanteda corpus convert %>% meta
 #' @export
 #' @examples

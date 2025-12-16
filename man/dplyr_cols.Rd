@@ -11,6 +11,14 @@
 \alias{rename_with}
 \alias{select}
 \title{Verbs that operate on columns}
+\arguments{
+\item{.data}{a \pkg{quanteda} corpus object}
+
+\item{...}{additional arguments passed to methods}
+}
+\value{
+A corpus with modified document variables, or for \code{pull()}, a vector.
+}
 \description{
 These functions operate on the columns (document variables) of \pkg{quanteda}
 objects, creating, modifying, renaming, reordering, or selecting document

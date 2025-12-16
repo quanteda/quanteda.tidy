@@ -14,9 +14,10 @@ NULL
 #'
 #' `rename()` changes the names of individual document variables using `new_name
 #' = old_name` syntax; `rename_with()` renames columns using a function.
-#' 
+#'
 #' @param .data a \pkg{quanteda} object with document variables
 #' @inheritParams dplyr::rename
+#' @return A corpus with renamed document variables.
 #' @export
 #' @examples
 #' data_corpus_inaugural %>%

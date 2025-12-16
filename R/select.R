@@ -45,10 +45,11 @@ tidyselect::all_of
 #' name (e.g. `a:f` selects all columns from `a` on the left to `f` on the
 #' right). You can also use predicate functions like `is.numeric` to select
 #' variables based on their properties.
-#' 
+#'
 #' For an overview of selection features, see [dplyr::select()].
 #' @param .data a \pkg{quanteda} object with document variables
 #' @inheritParams dplyr::select
+#' @return A corpus with the specified subset of document variables.
 #' @export
 #' @examples
 #' data_corpus_inaugural %>%

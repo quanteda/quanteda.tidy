@@ -17,6 +17,7 @@ NULL
 #'   or transformed
 #' @param ... name-value pairs of expressions for document variable modification
 #'   or assignment; see [mutate][dplyr::mutate()].
+#' @return A corpus with new or modified document variables.
 #' @importFrom quanteda corpus convert %>% meta
 #' @export
 #' @examples

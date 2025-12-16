@@ -4,6 +4,14 @@
 \alias{dplyr_context}
 \alias{n}
 \title{Context functions from dplyr}
+\arguments{
+\item{...}{not used; present for compatibility with the generic}
+}
+\value{
+Context-dependent: \code{n()} returns an integer; \code{cur_group_id()} returns
+an integer; \code{cur_group()} returns a tibble; \code{cur_data()} and \code{cur_data_all()}
+return tibbles; \code{cur_column()} returns a character string.
+}
 \description{
 These functions return information about the "current" group or "current"
 variable, so only work inside specific contexts like \code{summarise()} and

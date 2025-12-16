@@ -34,6 +34,9 @@ as names for a named vector. Specified in a similar manner as \code{var}.}
 
 \item{...}{For use by methods.}
 }
+\value{
+A vector containing the values of the specified document variable.
+}
 \description{
 Works like \code{$} for \pkg{quanteda} objects with document variables, or like
 \code{docvars(x, "varname")}.

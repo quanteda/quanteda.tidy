@@ -14,6 +14,10 @@
 
 \item{...}{unused}
 }
+\value{
+Invisibly returns the input corpus. Called primarily for its
+side effect of printing a summary to the console.
+}
 \description{
 Implementation of \link[tibble:reexports]{glimpse} for \pkg{quanteda} objects,
 allowing docvars to be viewed.

@@ -1,6 +1,8 @@
 #' Vector functions from dplyr
 #'
 #' Selected vector functions, re-exported.
+#' @param x a vector to transform
+#' @return A transformed vector of the same length as the input.
 #' @name dplyr_vector
 #' @keywords internal
 NULL

@@ -13,6 +13,9 @@ more details.}
 
 \item{...}{<\code{\link[dplyr:dplyr_tidy_select]{tidy-select}}> Columns to move.}
 }
+\value{
+A corpus with document variables reordered.
+}
 \description{
 Use \code{relocate()} to change the column positions of document variables, using
 the same syntax as \link[=select.corpus]{select()} to make it easy to move blocks

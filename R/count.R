@@ -10,6 +10,7 @@ NULL
 #' method calls [dplyr::add_tally()].
 #' @param x an object
 #' @param ... additional arguments passed to methods
+#' @return A corpus with an additional document variable containing counts.
 #' @export
 add_tally <- function(x, ...) {
   UseMethod("add_tally")

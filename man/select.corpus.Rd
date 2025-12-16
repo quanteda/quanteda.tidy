@@ -14,6 +14,9 @@ expressions separated by commas. Variable names can be used as if they
 were positions in the data frame, so expressions like \code{x:y} can
 be used to select a range of variables.}
 }
+\value{
+A corpus with the specified subset of document variables.
+}
 \description{
 Select (and optionally rename) document variables in a data frame, using a
 concise mini-language that makes it easy to refer to variables based on their
